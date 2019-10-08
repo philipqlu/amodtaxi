@@ -16,6 +16,7 @@ import ch.ethz.idsc.amodeus.net.SimulationObject;
 import ch.ethz.idsc.amodeus.net.VehicleContainer;
 import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 
 /* package */ class SimContainerPopulator {
 

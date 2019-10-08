@@ -10,6 +10,7 @@ import ch.ethz.idsc.amodeus.net.FastLinkLookup;
 import ch.ethz.idsc.amodeus.net.IdIntegerDatabase;
 import ch.ethz.idsc.amodeus.net.MatsimAmodeusDatabase;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
 
 
 public class DayTaxiRecordSF implements DayTaxiRecord {

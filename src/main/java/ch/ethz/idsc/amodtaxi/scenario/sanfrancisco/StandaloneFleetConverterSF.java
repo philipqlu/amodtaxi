@@ -25,6 +25,7 @@ import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
 import ch.ethz.idsc.amodeus.util.geo.ClosestLinkSelect;
 import ch.ethz.idsc.amodeus.util.math.CreateQuadTree;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;
 import ch.ethz.idsc.tensor.qty.Quantity;

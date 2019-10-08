@@ -3,7 +3,7 @@ package ch.ethz.idsc.amodtaxi.scenario.chicago;
 
 import ch.ethz.idsc.amodeus.util.CsvReader.Row;
 import ch.ethz.idsc.amodeus.util.math.SI;
-import ch.ethz.idsc.amodtaxi.scenario.readers.TaxiTripsReader;
+import ch.ethz.idsc.amodtaxi.readers.TaxiTripsReader;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.qty.Quantity;
 

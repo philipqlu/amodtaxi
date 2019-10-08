@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
+import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
 
 public class AllTaxiTrips {
 

@@ -12,6 +12,7 @@ import java.util.Objects;
 import ch.ethz.idsc.amodeus.dispatcher.core.RequestStatus;
 import ch.ethz.idsc.amodeus.dispatcher.core.RoboTaxiStatus;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 
 /* package */ enum StaticHelper1 {
     ;

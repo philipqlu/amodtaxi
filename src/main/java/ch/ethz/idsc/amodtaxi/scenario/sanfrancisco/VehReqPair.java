@@ -2,7 +2,7 @@ package ch.ethz.idsc.amodtaxi.scenario.sanfrancisco;
 
 import java.util.Objects;
 
-class VehReqPair {
+/* package */ class VehReqPair {
     private final int vehicleIndex;
     private final int localReqIndex;
 

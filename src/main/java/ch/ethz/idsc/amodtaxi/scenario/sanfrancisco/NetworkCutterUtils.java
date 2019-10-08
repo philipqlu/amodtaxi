@@ -11,7 +11,7 @@ import org.matsim.utils.objectattributes.attributable.AttributesUtils;
 
 import ch.ethz.idsc.amodeus.util.network.LinkModes;
 
-public enum NetworkCutterUtils {
+/* package */ enum NetworkCutterUtils {
     ;
 
     public static Network modeFilter(Network originalNetwork, LinkModes modes) {

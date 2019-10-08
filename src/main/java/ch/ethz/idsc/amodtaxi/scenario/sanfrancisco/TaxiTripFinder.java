@@ -9,6 +9,7 @@ import java.util.NavigableMap;
 
 import ch.ethz.idsc.amodeus.net.TensorCoords;
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
+import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 import ch.ethz.idsc.tensor.Scalar;
 
 public enum TaxiTripFinder {

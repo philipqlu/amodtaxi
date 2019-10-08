@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.NavigableMap;
 
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
+import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 
 /** A TaxiTrail contains a sorted map <Integer, TaxiStamp> with all the
  * {@link TaxiStamp} of the dataset.

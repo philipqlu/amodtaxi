@@ -6,6 +6,8 @@ import org.matsim.api.core.v01.Coord;
 
 import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
+import ch.ethz.idsc.amodtaxi.trace.TaxiStampConverted;
 
 
 public enum TaxiStampConvertedSF implements TaxiStampConverted {

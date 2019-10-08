@@ -4,11 +4,9 @@ package ch.ethz.idsc.amodtaxi.scenario;
 import java.io.File;
 import java.time.LocalDate;
 
-import org.matsim.core.network.FixedIntervalTimeVariantLinkFactory;
-
 import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodtaxi.scenario.fleetconvert.TripFleetConverter;
+import ch.ethz.idsc.amodtaxi.fleetconvert.TripFleetConverter;
 
 public class Scenario {
 

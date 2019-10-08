@@ -7,7 +7,7 @@ import java.util.TreeSet;
 
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 
-class GlobalRequestIndex {
+/* package */ class GlobalRequestIndex {
     private int globalReqIndex = 0;
     private HashMap<VehReqPair, Integer> reqMap = new HashMap<>();
 

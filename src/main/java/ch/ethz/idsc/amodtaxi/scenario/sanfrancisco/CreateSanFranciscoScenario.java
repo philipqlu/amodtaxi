@@ -18,6 +18,8 @@ import ch.ethz.idsc.amodeus.util.io.CopyFiles;
 import ch.ethz.idsc.amodeus.util.io.Locate;
 import ch.ethz.idsc.amodeus.util.io.MultiFileReader;
 import ch.ethz.idsc.amodeus.util.io.MultiFileTools;
+import ch.ethz.idsc.amodtaxi.osm.StaticMapCreator;
+import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.qty.Quantity;
 
@@ -57,7 +59,7 @@ public class CreateSanFranciscoScenario {
 
         /** download of open street map data to create scenario map using
          * pt2matsim */
-        StaticMapCreator.now(processingDir);
+        StaticMapCreator.now(processingDir, ScenarioLabels.osmData, ScenarioLabels.amodeusFile, ScenarioLabels.pt2MatSettings);
 
         /** remove all links except car from network */
         Network network = InitialNetworkPreparerSF.run(processingDir);

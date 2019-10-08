@@ -17,6 +17,7 @@ import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
 import ch.ethz.idsc.amodeus.util.LocalDateTimes;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 
 public class TaxiTrailSF implements TaxiTrail {
 

@@ -5,6 +5,7 @@ import java.util.List;
 
 import ch.ethz.idsc.amodeus.net.FastLinkLookup;
 import ch.ethz.idsc.amodeus.net.MatsimAmodeusDatabase;
+import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
 
 /* package */ enum ReadTraceFiles {
     ;
