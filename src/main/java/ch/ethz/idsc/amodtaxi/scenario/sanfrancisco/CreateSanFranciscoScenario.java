@@ -95,5 +95,8 @@ public class CreateSanFranciscoScenario {
                 ex.printStackTrace();
             }
         }
+
+        /** test consistency of created scenarios with independent analysis */
+        TaxiData scenarioData = CreateSanFranciscoStaticAnalysis.runStaticAnalysis(destinDir, traceFiles, network, db);
     }
 }

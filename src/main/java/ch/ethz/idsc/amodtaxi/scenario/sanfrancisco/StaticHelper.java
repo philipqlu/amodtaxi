@@ -1,7 +1,13 @@
 package ch.ethz.idsc.amodtaxi.scenario.sanfrancisco;
 
 import java.io.File;
+import java.util.Collection;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.TreeSet;
+import java.util.function.Function;
 
+import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.tensor.io.DeleteDirectory;
 
 /* package */ enum StaticHelper {
@@ -21,6 +27,35 @@ import ch.ethz.idsc.tensor.io.DeleteDirectory;
             outputDirectory.mkdir();
         }
         return outputDirectory;
+    }
+    
+    
+    public static <T> T getMinVal(Collection<FileAnalysis> col, Function<FileAnalysis, T> eval) {
+        try {
+            return sortedVals(col, eval).first();
+        } catch (NoSuchElementException ex) {
+            return null;
+        }
+    }
+
+    public static <T> T getMaxVal(Collection<FileAnalysis> col, Function<FileAnalysis, T> eval) {
+        try {
+            return sortedVals(col, eval).last();
+        } catch (NoSuchElementException ex) {
+            return null;
+        }
+    }
+
+    private static <T> TreeSet<T> sortedVals(Collection<FileAnalysis> col, Function<FileAnalysis, T> eval) {
+        GlobalAssert.that(col.size() > 0);
+        TreeSet<T> vals = new TreeSet<>();
+        for (FileAnalysis fA : col) {
+            T t = eval.apply(fA);
+            if (Objects.nonNull(t)) {
+                vals.add(t);
+            }
+        }
+        return vals;
     }
 
 }
