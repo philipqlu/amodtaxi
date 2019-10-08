@@ -62,7 +62,7 @@ public class CreateSanFranciscoScenario {
         // "ippfeip");
 
         /** copy other scenario files */
-        File settingsDir = new File(Locate.repoFolder(CreateSanFranciscoScenario.class, "amodeus"), "resources/sanFranciscoScenario");
+        File settingsDir = new File(Locate.repoFolder(CreateSanFranciscoScenario.class, "amodtaxi"), "resources/sanFranciscoScenario");
         CopyFiles.now(settingsDir.getAbsolutePath(), processingDir.getAbsolutePath(), //
                 Arrays.asList(new String[] { "AmodeusOptions.properties", "av.xml", "config_full.xml", "config.xml", //
                         "config_fullPublish.xml", "pt2matsim_settings.xml" }),
