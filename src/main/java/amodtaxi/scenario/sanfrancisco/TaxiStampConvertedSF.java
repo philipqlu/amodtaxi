@@ -1,0 +1,35 @@
+package amodtaxi.scenario.sanfrancisco;
+
+import java.util.List;
+
+import org.matsim.api.core.v01.Coord;
+
+import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
+import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+
+
+public enum TaxiStampConvertedSF implements TaxiStampConverted {
+    INSTANCE;
+
+    /** one entry in an SF data file is [lat long occ unixEpochTime],
+     * e.g., [37.79655 -122.39521 1 1213035317] */
+    @Override
+    public TaxiStamp from(List<String> dataFileRow, AmodeusTimeConvert timeConvert) {
+        GlobalAssert.that(dataFileRow.size() == 4);
+        TaxiStamp taxiStamp = new TaxiStamp();
+        /** time */
+        taxiStamp.globalTime = timeConvert.getLdt(Integer.parseInt(dataFileRow.get(3)));
+        /** occupancy status */
+        Integer occStat = Integer.parseInt(dataFileRow.get(2));
+        if (occStat == 1) {
+            taxiStamp.occupied = true;
+        } else {
+            taxiStamp.occupied = false;
+        }
+        /** coordinate */
+        taxiStamp.gps = new Coord( //
+                Double.parseDouble(dataFileRow.get(1)), //
+                Double.parseDouble(dataFileRow.get(0)));
+        return taxiStamp;
+    }
+}
