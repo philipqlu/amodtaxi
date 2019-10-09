@@ -8,6 +8,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import ch.ethz.idsc.amodtaxi.linkspeed.batch.FlowTrafficEstimation;
+import ch.ethz.idsc.amodtaxi.linkspeed.batch.GLPKLinOptDelayCalculator;
+import ch.ethz.idsc.amodtaxi.linkspeed.batch.TrafficDelayEstimate;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Tensor;
 import ch.ethz.idsc.tensor.Tensors;

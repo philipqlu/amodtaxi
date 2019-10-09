@@ -2,7 +2,9 @@ package ch.ethz.idsc.amodtaxi.scenario.sanfrancisco;
 
 import java.io.File;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -21,10 +23,11 @@ import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
 import ch.ethz.idsc.amodeus.util.geo.ClosestLinkSelect;
 import ch.ethz.idsc.amodeus.util.math.CreateQuadTree;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.FlowTimeInvLinkSpeed;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.GLPKLinOptDelayCalculator;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.LinkSpeedsExport;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.TaxiLinkSpeedEstimator;
+import ch.ethz.idsc.amodtaxi.linkspeed.LinkSpeedsExport;
+import ch.ethz.idsc.amodtaxi.linkspeed.TaxiLinkSpeedEstimator;
+import ch.ethz.idsc.amodtaxi.linkspeed.batch.FlowTimeInvLinkSpeed;
+import ch.ethz.idsc.amodtaxi.linkspeed.batch.GLPKLinOptDelayCalculator;
+import ch.ethz.idsc.amodtaxi.linkspeed.iterative.IterativeLinkSpeedEstimator;
 import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;
@@ -38,8 +41,10 @@ import ch.ethz.idsc.tensor.qty.Quantity;
     private final Network network;
     private final File configFile;
     private final Config configFull;
+    private final int maxIter = 65000;
     private DayTaxiRecord dayTaxiRecord;
     private ScenarioOptions simOptions;
+    
 
     private final QuadTree<Link> qt;
     private File outputDirectory;
@@ -85,7 +90,7 @@ import ch.ethz.idsc.tensor.qty.Quantity;
         Collection<TaxiTrip> tripsAll = AllTaxiTrips.in(dayTaxiRecord).on(simulationDate);
         ClosestLinkSelect linkSelect = new ClosestLinkSelect(db, qt);
         AverageNetworkSpeed speedFilter = new AverageNetworkSpeed(network, linkSelect, simulationDate, timeConvert);
-        Collection<TaxiTrip> trips = tripsAll.stream().filter(t -> speedFilter.isBelow(t, maxAverageSpeed)).collect(Collectors.toList());
+        List<TaxiTrip> trips = tripsAll.stream().filter(t -> speedFilter.isBelow(t, maxAverageSpeed)).collect(Collectors.toList());
 
         /** STEP 3: Compute minimum distance to cover in this configuration */
 
@@ -106,12 +111,14 @@ import ch.ethz.idsc.tensor.qty.Quantity;
         }
         /** STEP 4: Create Link Speed Data File */
         try {
-            // other options
-            // TaxiLinkSpeedEstimator lscalc = new ConventionalLinkSpeedCalculator(db, dayTaxiRecord, simulationDate, network, timeConvert);
-            // TaxiLinkSpeedEstimator lsls = new FlowLinkSpeed(trips, network, timeConvert, db, qt, simulationDate);
-            TaxiLinkSpeedEstimator lsCalc = new FlowTimeInvLinkSpeed(trips, network, db, GLPKLinOptDelayCalculator.INSTANCE);
-            // currently best option
-            
+            // other tested options...
+            // TaxiLinkSpeedEstimator lsCalc = new ConventionalLinkSpeedCalculator(db, dayTaxiRecord, simulationDate, network, timeConvert);
+            // TaxiLinkSpeedEstimator lsCalc = new FlowLinkSpeed(trips, network, timeConvert, db, qt, simulationDate);
+            // TaxiLinkSpeedEstimator lsCalc = new FlowTimeInvLinkSpeed(trips, network, db, GLPKLinOptDelayCalculator.INSTANCE);
+
+            // iterative
+            IterativeLinkSpeedEstimator lsCalc = new IterativeLinkSpeedEstimator(maxIter);
+            lsCalc.compute(workingDirectory, network, db, trips);
 
             File linkSpeedsFile = new File(simOptions.getLinkSpeedDataName() + "");
             LinkSpeedsExport.using(linkSpeedsFile, lsCalc);//

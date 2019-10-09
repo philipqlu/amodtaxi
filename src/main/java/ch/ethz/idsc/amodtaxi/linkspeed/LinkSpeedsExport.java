@@ -1,12 +1,11 @@
 /* amodeus - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
-package ch.ethz.idsc.amodtaxi.linkspeed.create;
+package ch.ethz.idsc.amodtaxi.linkspeed;
 
 import java.io.File;
 import java.io.IOException;
 
 import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedDataContainer;
 import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedUtils;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.TaxiLinkSpeedEstimator;
 
 public enum LinkSpeedsExport {
     ;

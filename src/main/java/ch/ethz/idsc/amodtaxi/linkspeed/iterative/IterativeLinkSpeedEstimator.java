@@ -1,5 +1,5 @@
 /* amodeus - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
-package ch.ethz.idsc.amodtaxi.est;
+package ch.ethz.idsc.amodtaxi.linkspeed.iterative;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,7 +20,7 @@ import ch.ethz.idsc.amodeus.options.ScenarioOptionsBase;
 import ch.ethz.idsc.amodeus.taxitrip.ImportTaxiTrips;
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.TaxiLinkSpeedEstimator;
+import ch.ethz.idsc.amodtaxi.linkspeed.TaxiLinkSpeedEstimator;
 import ch.ethz.idsc.amodtaxi.scenario.chicago.ChicagoGeoInformation;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Scalar;
@@ -29,7 +29,7 @@ public class IterativeLinkSpeedEstimator implements TaxiLinkSpeedEstimator {
 
     private LinkSpeedDataContainer lsData;
 
-    private final int maxIter = 10;
+    private final int maxIter;
     private final Scalar tolerance = RealScalar.of(0.005);
     /** this is a value in (0,1] which determines the convergence
      * speed of the algorithm, a value close to 1 may lead to
@@ -41,8 +41,52 @@ public class IterativeLinkSpeedEstimator implements TaxiLinkSpeedEstimator {
     private final Random random = new Random(123);
     private final int dt = 450;
 
-    public void compute(File processingDir, File finalTripsFile) throws IOException {
+    public IterativeLinkSpeedEstimator(int maxIter) {
+        this.maxIter = maxIter;
+    }
 
+    public void compute(File processingDir, Network network, MatsimAmodeusDatabase db, List<TaxiTrip> trips) {
+
+        // // network and database
+        // ScenarioOptions scenarioOptions = new ScenarioOptions(processingDir, //
+        // ScenarioOptionsBase.getDefault());
+        // File configFile = new File(scenarioOptions.getPreparerConfigName());
+        // System.out.println(configFile.getAbsolutePath());
+        // GlobalAssert.that(configFile.exists());
+        // Config configFull = ConfigUtils.loadConfig(configFile.toString());
+        // Network network = NetworkLoader.fromNetworkFile(new File(processingDir, configFull.network().getInputFile()));
+        // MatsimAmodeusDatabase db = //
+        // MatsimAmodeusDatabase.initialize(network, scenarioOptions.getLocationSpec().referenceFrame());
+
+        /** create link speed data container */
+        lsData = new LinkSpeedDataContainer();
+
+        /** load initial trips */
+
+        System.out.println("Number of trips: " + trips.size());
+
+        new FindCongestionIterative(network, db, processingDir, lsData, trips, maxIter, //
+                tolerance, epsilon1, epsilon2, random, dt, m -> Cost.max(m), trips.size());
+
+        /** final export */
+        StaticHelper.export(processingDir, lsData, "");
+
+    }
+
+    @Override
+    public LinkSpeedDataContainer getLsData() {
+        return Objects.requireNonNull(lsData);
+    }
+
+    // -------
+
+    public static void main(String[] args) throws IOException {
+        ChicagoGeoInformation.setup();
+        File processingDir = new File("/home/clruch/data/TaxiComparison_ChicagoScCr/Scenario");
+        File finalTripsFile = new File("/home/clruch/data/TaxiComparison_ChicagoScCr/Scenario/"//
+                + "tripData/Taxi_Trips_2019_07_19_prepared_filtered_modified_final.csv");
+
+        /** creating finding network and Matsimamodeusdatabase */
         // network and database
         ScenarioOptions scenarioOptions = new ScenarioOptions(processingDir, //
                 ScenarioOptionsBase.getDefault());
@@ -54,34 +98,11 @@ public class IterativeLinkSpeedEstimator implements TaxiLinkSpeedEstimator {
         MatsimAmodeusDatabase db = //
                 MatsimAmodeusDatabase.initialize(network, scenarioOptions.getLocationSpec().referenceFrame());
 
-        /** create link speed data container */
-        lsData = new LinkSpeedDataContainer();
-
-        /** load initial trips */
+        /** generating the trips file */
         List<TaxiTrip> trips = new ArrayList<>();
         ImportTaxiTrips.fromFile(finalTripsFile).//
                 forEach(tt -> trips.add(tt));
-        System.out.println("Number of trips: " + trips.size());
-
-        new FindCongestionIterative(network, db, processingDir, lsData, trips, maxIter, //
-                tolerance, epsilon1, epsilon2, random, dt, m -> Cost.max(m), trips.size());
-
-        /** final export */
-        StaticHelper.export(processingDir, lsData, "");
-
-    }
-
-    public static void main(String[] args) throws IOException {
-        ChicagoGeoInformation.setup();
-        File processingDir = new File("/home/clruch/data/TaxiComparison_ChicagoScCr/Scenario");
-        File finalTripsFile = new File("/home/clruch/data/TaxiComparison_ChicagoScCr/Scenario/"//
-                + "tripData/Taxi_Trips_2019_07_19_prepared_filtered_modified_final.csv");
-        new IterativeLinkSpeedEstimator().compute(processingDir, finalTripsFile);
-    }
-
-    @Override
-    public LinkSpeedDataContainer getLsData() {
-        return Objects.requireNonNull(lsData);
+        new IterativeLinkSpeedEstimator(200000).compute(processingDir, network, db, trips);
     }
 
 }

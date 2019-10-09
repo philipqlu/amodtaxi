@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
@@ -19,11 +21,13 @@ import ch.ethz.idsc.amodeus.net.FastLinkLookup;
 import ch.ethz.idsc.amodeus.net.MatsimAmodeusDatabase;
 import ch.ethz.idsc.amodeus.options.ScenarioOptions;
 import ch.ethz.idsc.amodeus.options.ScenarioOptionsBase;
+import ch.ethz.idsc.amodeus.taxitrip.ImportTaxiTrips;
+import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
 import ch.ethz.idsc.amodeus.util.io.CopyFiles;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodtaxi.est.IterativeLinkSpeedEstimator;
 import ch.ethz.idsc.amodtaxi.fleetconvert.ChicagoOnlineTripFleetConverter;
+import ch.ethz.idsc.amodtaxi.linkspeed.iterative.IterativeLinkSpeedEstimator;
 import ch.ethz.idsc.amodtaxi.osm.OsmLoader;
 import ch.ethz.idsc.amodtaxi.readers.TaxiTripsReader;
 import ch.ethz.idsc.amodtaxi.scenario.FinishedScenario;
@@ -56,6 +60,9 @@ import ch.ethz.idsc.tensor.qty.Quantity;
     private final File workingDir;
     private final File processingDir;
     private File finalTripsFile;
+    private Network network = null;
+    private MatsimAmodeusDatabase db = null;
+    private final int maxIter = 500000;
 
     private CreateChicagoScenario(File workingDir) throws Exception {
         this.workingDir = workingDir;
@@ -70,7 +77,12 @@ import ch.ethz.idsc.tensor.qty.Quantity;
         // this is the old LP-based code
         // ChicagoLinkSpeeds.compute(processingDir, finalTripsFile);
         // new code
-        new IterativeLinkSpeedEstimator().compute(processingDir, finalTripsFile);
+
+        /** loading final trips */
+        List<TaxiTrip> trips = new ArrayList<>();
+        ImportTaxiTrips.fromFile(finalTripsFile).//
+                forEach(tt -> trips.add(tt));
+        new IterativeLinkSpeedEstimator(maxIter).compute(processingDir, network, db, trips);
 
         FinishedScenario.copyToDir(workingDir.getAbsolutePath(), processingDir.getAbsolutePath(), //
                 destinDir.getAbsolutePath());
@@ -118,8 +130,8 @@ import ch.ethz.idsc.tensor.qty.Quantity;
         System.out.println(configFile.getAbsolutePath());
         GlobalAssert.that(configFile.exists());
         Config configFull = ConfigUtils.loadConfig(configFile.toString());
-        Network network = NetworkLoader.fromNetworkFile(new File(processingdir, configFull.network().getInputFile()));
-        MatsimAmodeusDatabase db = MatsimAmodeusDatabase.initialize(network, scenarioOptions.getLocationSpec().referenceFrame());
+        network = NetworkLoader.fromNetworkFile(new File(processingdir, configFull.network().getInputFile()));
+        db = MatsimAmodeusDatabase.initialize(network, scenarioOptions.getLocationSpec().referenceFrame());
         FastLinkLookup fll = new FastLinkLookup(network, db);
 
         /** prepare for creation of scenario */
@@ -129,7 +141,7 @@ import ch.ethz.idsc.tensor.qty.Quantity;
                 fll, new File(processingdir, "virtualNetworkChicago"));
         TaxiTripFilter finalTripFilter = new TaxiTripFilter();
         /** trips which are faster than the network freeflow speeds would allow are removed */
-        finalTripFilter.addFilter(new TripNetworkFilter(network, db,//
+        finalTripFilter.addFilter(new TripNetworkFilter(network, db, //
                 Quantity.of(5.5, "m*s^-1"), Quantity.of(3600, "s"), Quantity.of(200, "m")));
 
         // TODO eventually remove, this did not improve the fit.

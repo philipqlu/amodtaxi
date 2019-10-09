@@ -1,5 +1,5 @@
 /* amodeus - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
-package ch.ethz.idsc.amodtaxi.linkspeed.create;
+package ch.ethz.idsc.amodtaxi.linkspeed.batch;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import org.gnu.glpk.glp_prob;
 import org.gnu.glpk.glp_smcp;
 
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.TrafficDelayEstimate;
+import ch.ethz.idsc.amodtaxi.linkspeed.batch.TrafficDelayEstimate;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Tensor;
 import ch.ethz.idsc.tensor.Tensors;

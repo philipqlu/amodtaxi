@@ -1,4 +1,4 @@
-package ch.ethz.idsc.amodtaxi.est;
+package ch.ethz.idsc.amodtaxi.linkspeed.iterative;
 
 import java.util.Collections;
 import java.util.HashMap;

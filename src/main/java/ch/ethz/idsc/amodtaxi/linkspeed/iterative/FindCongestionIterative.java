@@ -1,5 +1,5 @@
 /* amodeus - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
-package ch.ethz.idsc.amodtaxi.est;
+package ch.ethz.idsc.amodtaxi.linkspeed.iterative;
 
 import java.io.File;
 import java.util.List;
@@ -37,6 +37,7 @@ import ch.ethz.idsc.tensor.Scalars;
     private final Scalar epsilon1;
     /** probability of taking a new trip */
     private final Scalar epsilon2;
+    private final int maxIter;
     private final Random random;
     private final int dt;
 
@@ -51,6 +52,7 @@ import ch.ethz.idsc.tensor.Scalars;
         this.lsData = lsData;
         this.epsilon1 = epsilon1;
         this.epsilon2 = epsilon2;
+        this.maxIter = maxIter;
         this.random = random;
         this.dt = dt;
 
@@ -77,7 +79,7 @@ import ch.ethz.idsc.tensor.Scalars;
         System.out.println("Last cost before start: " + lastCost);
         System.out.println("Tolerance:              " + tolerance);
 
-        while (Scalars.lessEquals(tolerance, lastCost)) {
+        while (Scalars.lessEquals(tolerance, lastCost) && iterationCount < maxIter) {
             ++iterationCount;
 
             /** taking random trip */

@@ -1,5 +1,5 @@
 /* amodeus - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
-package ch.ethz.idsc.amodtaxi.linkspeed.create;
+package ch.ethz.idsc.amodtaxi.linkspeed.batch;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -12,7 +12,7 @@ import ch.ethz.idsc.amodeus.linkspeed.LinkIndex;
 import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedDataContainer;
 import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedTimeSeries;
 import ch.ethz.idsc.amodeus.net.MatsimAmodeusDatabase;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.NeighborKernel;
+import ch.ethz.idsc.amodtaxi.linkspeed.NeighborKernel;
 import ch.ethz.idsc.tensor.Scalar;
 
 /** This class is used to complete modified link speeds in a network at a certain time

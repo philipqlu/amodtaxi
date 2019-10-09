@@ -1,5 +1,5 @@
 /* amodeus - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
-package ch.ethz.idsc.amodtaxi.est;
+package ch.ethz.idsc.amodtaxi.linkspeed.iterative;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedDataContainer;
 import ch.ethz.idsc.amodeus.options.ScenarioOptions;
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodeus.util.io.SaveFormats;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.LinkSpeedsExport;
+import ch.ethz.idsc.amodtaxi.linkspeed.LinkSpeedsExport;
 import ch.ethz.idsc.tensor.RationalScalar;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Scalar;

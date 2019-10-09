@@ -1,5 +1,5 @@
 /* amodeus - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
-package ch.ethz.idsc.amodtaxi.linkspeed.create;
+package ch.ethz.idsc.amodtaxi.linkspeed.batch;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,11 +19,11 @@ import ch.ethz.idsc.amodeus.taxitrip.ShortestDurationCalculator;
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTripCheck;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.FlowTrafficEstimation;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.LinkSpeedDataInterpolation;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.ProximityNeighborKernel;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.TaxiLinkSpeedEstimator;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.TrafficDelayEstimate;
+import ch.ethz.idsc.amodtaxi.linkspeed.TaxiLinkSpeedEstimator;
+import ch.ethz.idsc.amodtaxi.linkspeed.batch.FlowTrafficEstimation;
+import ch.ethz.idsc.amodtaxi.linkspeed.batch.LinkSpeedDataInterpolation;
+import ch.ethz.idsc.amodtaxi.linkspeed.batch.ProximityNeighborKernel;
+import ch.ethz.idsc.amodtaxi.linkspeed.batch.TrafficDelayEstimate;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Tensor;

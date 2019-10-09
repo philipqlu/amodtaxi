@@ -1,5 +1,5 @@
 /* amodeus - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
-package ch.ethz.idsc.amodtaxi.linkspeed.create;
+package ch.ethz.idsc.amodtaxi.linkspeed.batch;
 
 import java.util.Collection;
 
@@ -9,7 +9,7 @@ import org.matsim.core.utils.collections.QuadTree;
 
 import ch.ethz.idsc.amodeus.util.geo.FastQuadTree;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.NeighborKernel;
+import ch.ethz.idsc.amodtaxi.linkspeed.NeighborKernel;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;
 import ch.ethz.idsc.tensor.qty.Quantity;

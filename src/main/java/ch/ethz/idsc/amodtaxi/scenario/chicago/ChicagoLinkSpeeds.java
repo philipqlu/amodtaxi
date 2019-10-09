@@ -18,10 +18,10 @@ import ch.ethz.idsc.amodeus.taxitrip.ImportTaxiTrips;
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodeus.util.geo.FastQuadTree;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.FlowTimeInvLinkSpeed;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.GLPKLinOptDelayCalculator;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.LinkSpeedsExport;
-import ch.ethz.idsc.amodtaxi.linkspeed.create.TaxiLinkSpeedEstimator;
+import ch.ethz.idsc.amodtaxi.linkspeed.LinkSpeedsExport;
+import ch.ethz.idsc.amodtaxi.linkspeed.TaxiLinkSpeedEstimator;
+import ch.ethz.idsc.amodtaxi.linkspeed.batch.FlowTimeInvLinkSpeed;
+import ch.ethz.idsc.amodtaxi.linkspeed.batch.GLPKLinOptDelayCalculator;
 
 /* package */ enum ChicagoLinkSpeeds {
     ;
