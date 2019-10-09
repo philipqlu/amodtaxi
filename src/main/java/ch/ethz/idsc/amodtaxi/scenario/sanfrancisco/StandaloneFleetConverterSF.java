@@ -92,7 +92,6 @@ import ch.ethz.idsc.tensor.qty.Quantity;
         List<TaxiTrip> trips = taxiTripFilter.filterStream(tripsAll.stream()).collect(Collectors.toList());
         System.out.println("Trips after filtering:  " + trips.size());
         taxiTripFilter.printSummary();
-        System.exit(1);
 
         // taxiTripFilter.
         // ClosestLinkSelect linkSelect = new ClosestLinkSelect(db, qt);

@@ -100,7 +100,7 @@
 		<!-- Highway Primary (= A highway linking large towns.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="29.0576" />
+			<param name="freespeed" value="31.2928" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="1500.0" />
 			<param name="lanes" value="1.0" />
@@ -113,7 +113,7 @@
 		<!-- Highway Primary Link (= Connecting or connecting ramp of a highway) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="29.0576" />
+			<param name="freespeed" value="31.2928" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="1500.0" />
 			<param name="lanes" value="1.0" />
@@ -127,7 +127,7 @@
 		<!-- Highway Secondary (= A highway linking large towns.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="29.0576" />
+			<param name="freespeed" value="31.2928" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="1000.0" />
 			<param name="lanes" value="1.0" />
@@ -140,7 +140,7 @@
 		<!-- Highway Secondary Link (= Connecting roads of minor roads) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="29.0576" />
+			<param name="freespeed" value="31.2928" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="1000.0" />
 			<param name="lanes" value="1.0" />
@@ -155,7 +155,7 @@
 			centres of a large town or city.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="29.0576" />
+			<param name="freespeed" value="31.2928" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="600.0" />
 			<param name="lanes" value="1.0" />
@@ -168,7 +168,7 @@
 		<!-- Highway Tertiary Link (= Connecting roads of minor roads) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="29.0576" />
+			<param name="freespeed" value="31.2928" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="600.0" />
 			<param name="lanes" value="1.0" />
@@ -184,7 +184,7 @@
 			to 35 mph, see e.g. https://www.visitcalifornia.com/attraction/driving-california -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="29.0576" />
+			<param name="freespeed" value="31.2928" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="600.0" />
 			<param name="lanes" value="1.0" />
@@ -198,7 +198,7 @@
 		<!-- Highway Road, set to 35 mph, see e.g. https://www.visitcalifornia.com/attraction/driving-california -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="29.0576" />
+			<param name="freespeed" value="31.2928" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="300.0" />
 			<param name="lanes" value="1.0" />
