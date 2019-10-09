@@ -20,6 +20,8 @@ import ch.ethz.idsc.amodeus.util.io.MultiFileReader;
 import ch.ethz.idsc.amodeus.util.io.MultiFileTools;
 import ch.ethz.idsc.amodtaxi.osm.StaticMapCreator;
 import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
+import ch.ethz.idsc.amodtaxi.tripfilter.TaxiTripFilter;
+import ch.ethz.idsc.amodtaxi.tripfilter.TripNetworkFilter;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.qty.Quantity;
 
@@ -75,9 +77,14 @@ public class CreateSanFranciscoScenario {
         for (LocalDate localDate : dates) {
             try {
                 /** compute scenario */
+                TaxiTripFilter finalTripFilter = new TaxiTripFilter();
+                /** trips which are faster than the network freeflow speeds would allow are removed */
+                finalTripFilter.addFilter(new TripNetworkFilter(network, db, //
+                        Quantity.of(5.5, "m*s^-1"), Quantity.of(3600, "s"), Quantity.of(200, "m")));
+                
                 StandaloneFleetConverterSF sfc = new StandaloneFleetConverterSF(processingDir, //
-                        dayTaxiRecord, db, network, timeStep, timeConvert);
-                sfc.run(localDate, true);
+                        dayTaxiRecord, db, network, timeStep, timeConvert,finalTripFilter);
+                sfc.run(localDate);
 
                 /** copy scenario to new location */
                 String destinDirDayStr = destinDir + "/" + localDate.toString();

@@ -14,8 +14,12 @@ import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;
 
 /** This filter calculates the min-time-path in the network without traffic.
- * Trips with a duration that is smaller than this value are rejected.
- * Trips which are not above a certain minimum average speed are rejected. */
+ * Then, only trips are kept which:
+ * - are slower than the network allows (speeding etc.)
+ * - have less delay w.r.t. free speed than maxDelay
+ * - have an average speed faster than minSpeed (endless waiting, leaving taxi meter on, ...)
+ * - are longer than a minimum distance
+ * - have a nontrivial path of more than 1 link */
 public class TripNetworkFilter implements Predicate<TaxiTrip> {
 
     private final ShortestDurationCalculator calc;

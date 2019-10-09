@@ -2,7 +2,6 @@ package ch.ethz.idsc.amodtaxi.scenario.sanfrancisco;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -24,11 +23,9 @@ import ch.ethz.idsc.amodeus.util.geo.ClosestLinkSelect;
 import ch.ethz.idsc.amodeus.util.math.CreateQuadTree;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.linkspeed.LinkSpeedsExport;
-import ch.ethz.idsc.amodtaxi.linkspeed.TaxiLinkSpeedEstimator;
-import ch.ethz.idsc.amodtaxi.linkspeed.batch.FlowTimeInvLinkSpeed;
-import ch.ethz.idsc.amodtaxi.linkspeed.batch.GLPKLinOptDelayCalculator;
 import ch.ethz.idsc.amodtaxi.linkspeed.iterative.IterativeLinkSpeedEstimator;
 import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
+import ch.ethz.idsc.amodtaxi.tripfilter.TaxiTripFilter;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;
 import ch.ethz.idsc.tensor.qty.Quantity;
@@ -44,7 +41,7 @@ import ch.ethz.idsc.tensor.qty.Quantity;
     private final int maxIter = 65000;
     private DayTaxiRecord dayTaxiRecord;
     private ScenarioOptions simOptions;
-    
+    private final TaxiTripFilter taxiTripFilter;
 
     private final QuadTree<Link> qt;
     private File outputDirectory;
@@ -56,12 +53,13 @@ import ch.ethz.idsc.tensor.qty.Quantity;
 
     public StandaloneFleetConverterSF(File workingDirectory, DayTaxiRecord dayTaxiRecord, //
             MatsimAmodeusDatabase db, Network network, Scalar TIME_STEP, //
-            AmodeusTimeConvert timeConvert) throws Exception {
+            AmodeusTimeConvert timeConvert, TaxiTripFilter taxiTripFilter) throws Exception {
         this.workingDirectory = workingDirectory;
         this.dayTaxiRecord = dayTaxiRecord;
         this.db = db;
         this.TIME_STEP = TIME_STEP;
         this.timeConvert = timeConvert;
+        this.taxiTripFilter = taxiTripFilter;
         simOptions = new ScenarioOptions(workingDirectory, ScenarioOptionsBase.getDefault());
         configFile = new File(simOptions.getPreparerConfigName());
         GlobalAssert.that(configFile.exists());
@@ -75,7 +73,7 @@ import ch.ethz.idsc.tensor.qty.Quantity;
         System.out.println("maxAverageSpeed value: " + maxAverageSpeed.value());
     }
 
-    public void run(LocalDate simulationDate, boolean printDebugFile) throws Exception {
+    public void run(LocalDate simulationDate) throws Exception {
 
         /** STEP 0: Prepare Environment and load all configuration files */
         outputDirectory = StaticHelper.prepareFolder(workingDirectory, new File(workingDirectory, configFull.controler().getOutputDirectory()));
@@ -88,17 +86,19 @@ import ch.ethz.idsc.tensor.qty.Quantity;
 
         /** STEP 2: Find relevant trips */
         Collection<TaxiTrip> tripsAll = AllTaxiTrips.in(dayTaxiRecord).on(simulationDate);
-        ClosestLinkSelect linkSelect = new ClosestLinkSelect(db, qt);
-        AverageNetworkSpeed speedFilter = new AverageNetworkSpeed(network, linkSelect, simulationDate, timeConvert);
-        List<TaxiTrip> trips = tripsAll.stream().filter(t -> speedFilter.isBelow(t, maxAverageSpeed)).collect(Collectors.toList());
 
-        /** STEP 3: Compute minimum distance to cover in this configuration */
+        /** STEP 3: Filter unwanted trips */
+        System.out.println("Trips before filtering: " +  tripsAll.size());
+        List<TaxiTrip> trips = taxiTripFilter.filterStream(tripsAll.stream()).collect(Collectors.toList());
+        System.out.println("Trips after filtering:  " +  trips.size());
+        System.exit(1);
+        
+//        taxiTripFilter.
+//        ClosestLinkSelect linkSelect = new ClosestLinkSelect(db, qt);
+//        AverageNetworkSpeed speedFilter = new AverageNetworkSpeed(network, linkSelect, simulationDate, timeConvert);
+//        List<TaxiTrip> trips = tripsAll.stream().filter(t -> speedFilter.isBelow(t, maxAverageSpeed)).collect(Collectors.toList());
 
-        System.out.println("Original number of trips:              " + tripsAll.size());
-        System.out.println("Trips with reasonable avereage speeds: " + trips.size());
-
-        /** STEP 2: Generate population.xml using the recordings */
-        // OLDPopulationCreator.createAdamAndEva(workingDirectory, outputDirectory.getParentFile(), network, db);
+        /** STEP 4: Generate population.xml using the recordings */
         AdamAndEve.create(workingDirectory, trips, network, db, timeConvert, qt, simulationDate);
 
         /** STEP 3: Generate the report */

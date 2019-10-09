@@ -15,6 +15,7 @@ import ch.ethz.idsc.amodeus.util.geo.ClosestLinkSelect;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;
 
+@Deprecated // TODO delete
 public class AverageNetworkSpeed {
 
     private final CachedNetworkTimeDistance calcDistanceCached;
