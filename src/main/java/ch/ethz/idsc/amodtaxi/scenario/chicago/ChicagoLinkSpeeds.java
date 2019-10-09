@@ -10,10 +10,6 @@ import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 import org.matsim.core.utils.collections.QuadTree;
 
-import ch.ethz.idsc.amodeus.linkspeed.create.FlowTimeInvLinkSpeed;
-import ch.ethz.idsc.amodeus.linkspeed.create.GLPKLinOptDelayCalculator;
-import ch.ethz.idsc.amodeus.linkspeed.create.LinkSpeedsExport;
-import ch.ethz.idsc.amodeus.linkspeed.create.TaxiLinkSpeedEstimator;
 import ch.ethz.idsc.amodeus.matsim.NetworkLoader;
 import ch.ethz.idsc.amodeus.net.MatsimAmodeusDatabase;
 import ch.ethz.idsc.amodeus.options.ScenarioOptions;
@@ -22,6 +18,10 @@ import ch.ethz.idsc.amodeus.taxitrip.ImportTaxiTrips;
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodeus.util.geo.FastQuadTree;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import ch.ethz.idsc.amodtaxi.linkspeed.create.FlowTimeInvLinkSpeed;
+import ch.ethz.idsc.amodtaxi.linkspeed.create.GLPKLinOptDelayCalculator;
+import ch.ethz.idsc.amodtaxi.linkspeed.create.LinkSpeedsExport;
+import ch.ethz.idsc.amodtaxi.linkspeed.create.TaxiLinkSpeedEstimator;
 
 /* package */ enum ChicagoLinkSpeeds {
     ;
