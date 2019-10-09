@@ -48,7 +48,7 @@
 			traffic.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="24.5872" />
+			<param name="freespeed" value="29.0576" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="2000.0" />
 			<param name="lanes" value="2.0" />
@@ -74,7 +74,7 @@
 		<!-- Highway Trunk (= Important roads that are not motorways.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="24.5872" />
+			<param name="freespeed" value="29.0576" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="2000.0" />
 			<param name="lanes" value="2.0" />
@@ -100,7 +100,7 @@
 		<!-- Highway Primary (= A highway linking large towns.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="24.5872" />
+			<param name="freespeed" value="29.0576" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="1500.0" />
 			<param name="lanes" value="1.0" />
@@ -127,7 +127,7 @@
 		<!-- Highway Secondary (= A highway linking large towns.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="24.5872" />
+			<param name="freespeed" value="29.0576" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="1000.0" />
 			<param name="lanes" value="1.0" />
