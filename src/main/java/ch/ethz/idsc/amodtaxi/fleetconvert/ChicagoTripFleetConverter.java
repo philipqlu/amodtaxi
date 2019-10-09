@@ -6,8 +6,6 @@ import org.matsim.api.core.v01.network.Network;
 import ch.ethz.idsc.amodeus.options.ScenarioOptions;
 import ch.ethz.idsc.amodeus.util.math.SI;
 import ch.ethz.idsc.amodtaxi.readers.TaxiTripsReader;
-import ch.ethz.idsc.amodtaxi.tripfilter.DeprcTripDistanceFilter;
-import ch.ethz.idsc.amodtaxi.tripfilter.DeprcTripNetworkFilter;
 import ch.ethz.idsc.amodtaxi.tripfilter.TaxiTripFilter;
 import ch.ethz.idsc.amodtaxi.tripfilter.TripDurationFilter;
 import ch.ethz.idsc.amodtaxi.tripmodif.TaxiDataModifier;
@@ -24,11 +22,11 @@ public class ChicagoTripFleetConverter extends TripFleetConverter {
 
     @Override
     public void setFilters() {
+        primaryFilter.addFilter(new TripDurationFilter(Quantity.of(0, SI.SECOND), Quantity.of(20000, SI.SECOND)));
         // TODO trips were redistributed in 15 minutes interval randomly before,
         // add this again if necessary...
-        primaryFilter.addFilter(new DeprcTripNetworkFilter(scenarioOptions, network));
-        primaryFilter.addFilter(new TripDurationFilter(Quantity.of(0, SI.SECOND), Quantity.of(20000, SI.SECOND)));
-        primaryFilter.addFilter(new DeprcTripDistanceFilter(Quantity.of(500, SI.METER), Quantity.of(50000, SI.METER)));
+        // primaryFilter.addFilter(new DeprcTripNetworkFilter(scenarioOptions, network));
+        // primaryFilter.addFilter(new DeprcTripDistanceFilter(Quantity.of(500, SI.METER), Quantity.of(50000, SI.METER)));
     }
 
 }

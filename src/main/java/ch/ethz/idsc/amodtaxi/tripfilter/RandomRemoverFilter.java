@@ -3,11 +3,10 @@ package ch.ethz.idsc.amodtaxi.tripfilter;
 
 import java.util.Objects;
 import java.util.Random;
-import java.util.function.Predicate;
 
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 
-public class RandomRemoverFilter implements Predicate<TaxiTrip> {
+public class RandomRemoverFilter extends AbstractConsciousFilter {
 
     private final Random random;
     private final double keepShare;
@@ -18,7 +17,7 @@ public class RandomRemoverFilter implements Predicate<TaxiTrip> {
     }
 
     @Override
-    public boolean test(TaxiTrip t) {        
+    public boolean testInternal(TaxiTrip t) {        
         if (random.nextDouble() <= keepShare)
             return true;
         return false;

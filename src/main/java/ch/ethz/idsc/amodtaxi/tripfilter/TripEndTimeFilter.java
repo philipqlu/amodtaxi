@@ -1,15 +1,13 @@
 /* amodeus - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
 package ch.ethz.idsc.amodtaxi.tripfilter;
 
-import java.util.function.Predicate;
-
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;
 import ch.ethz.idsc.tensor.qty.Quantity;
 
-public class TripEndTimeFilter implements Predicate<TaxiTrip> {
+public class TripEndTimeFilter extends AbstractConsciousFilter {
     private final Scalar maxEndTime;
 
     public TripEndTimeFilter(Scalar maxEndTime) {
@@ -18,7 +16,7 @@ public class TripEndTimeFilter implements Predicate<TaxiTrip> {
     }
 
     @Override
-    public boolean test(TaxiTrip t) {
+    public boolean testInternal(TaxiTrip t) {
         // seconds of day when trip starts
         // 15 minutes are added because trips are always projected to start of 15 min interval
         double secStart = 15 * 60.0 + t.pickupDate.getHour() * 3600.0 + //

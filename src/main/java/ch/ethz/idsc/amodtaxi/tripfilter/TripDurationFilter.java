@@ -1,8 +1,6 @@
 /* amodeus - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
 package ch.ethz.idsc.amodtaxi.tripfilter;
 
-import java.util.function.Predicate;
-
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.tensor.Scalar;
@@ -11,7 +9,7 @@ import ch.ethz.idsc.tensor.qty.Quantity;
 
 /** Filter used to remove {@link TaxiTrip}s which a duration not in the
  * interval [minDuration,maxDuration] */
-public class TripDurationFilter implements Predicate<TaxiTrip> {
+public class TripDurationFilter extends AbstractConsciousFilter {
     private final Scalar minDuration;
     private final Scalar maxDuration;
 
@@ -24,7 +22,7 @@ public class TripDurationFilter implements Predicate<TaxiTrip> {
     }
 
     @Override
-    public boolean test(TaxiTrip t) {
+    public boolean testInternal(TaxiTrip t) {
         return Scalars.lessEquals(minDuration, t.duration) && //
                 Scalars.lessEquals(t.duration, maxDuration);
     }

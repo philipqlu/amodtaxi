@@ -1,7 +1,5 @@
 package ch.ethz.idsc.amodtaxi.tripfilter;
 
-import java.util.function.Predicate;
-
 import org.matsim.api.core.v01.network.Link;
 import org.matsim.api.core.v01.network.Network;
 import org.matsim.contrib.dvrp.router.DistanceAsTravelDisutility;
@@ -16,7 +14,7 @@ import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.tensor.Scalar;
 
-public class TripDistanceFilter implements Predicate<TaxiTrip> {
+public class TripDistanceFilter extends AbstractConsciousFilter {
 
     private final FastLinkLookup fll;
     private final LeastCostPathCalculator lcpc;
@@ -33,7 +31,7 @@ public class TripDistanceFilter implements Predicate<TaxiTrip> {
     }
 
     @Override
-    public boolean test(TaxiTrip trip) {
+    public boolean testInternal(TaxiTrip trip) {
         /** get origin and destination */
         Link origin = fll.getLinkFromWGS84(TensorCoords.toCoord(trip.pickupLoc));
         Link destin = fll.getLinkFromWGS84(TensorCoords.toCoord(trip.dropoffLoc));

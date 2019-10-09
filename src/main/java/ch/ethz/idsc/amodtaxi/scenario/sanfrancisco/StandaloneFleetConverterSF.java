@@ -88,15 +88,16 @@ import ch.ethz.idsc.tensor.qty.Quantity;
         Collection<TaxiTrip> tripsAll = AllTaxiTrips.in(dayTaxiRecord).on(simulationDate);
 
         /** STEP 3: Filter unwanted trips */
-        System.out.println("Trips before filtering: " +  tripsAll.size());
+        System.out.println("Trips before filtering: " + tripsAll.size());
         List<TaxiTrip> trips = taxiTripFilter.filterStream(tripsAll.stream()).collect(Collectors.toList());
-        System.out.println("Trips after filtering:  " +  trips.size());
+        System.out.println("Trips after filtering:  " + trips.size());
+        taxiTripFilter.printSummary();
         System.exit(1);
-        
-//        taxiTripFilter.
-//        ClosestLinkSelect linkSelect = new ClosestLinkSelect(db, qt);
-//        AverageNetworkSpeed speedFilter = new AverageNetworkSpeed(network, linkSelect, simulationDate, timeConvert);
-//        List<TaxiTrip> trips = tripsAll.stream().filter(t -> speedFilter.isBelow(t, maxAverageSpeed)).collect(Collectors.toList());
+
+        // taxiTripFilter.
+        // ClosestLinkSelect linkSelect = new ClosestLinkSelect(db, qt);
+        // AverageNetworkSpeed speedFilter = new AverageNetworkSpeed(network, linkSelect, simulationDate, timeConvert);
+        // List<TaxiTrip> trips = tripsAll.stream().filter(t -> speedFilter.isBelow(t, maxAverageSpeed)).collect(Collectors.toList());
 
         /** STEP 4: Generate population.xml using the recordings */
         AdamAndEve.create(workingDirectory, trips, network, db, timeConvert, qt, simulationDate);
