@@ -46,7 +46,7 @@
 			traffic.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="80" />
+			<param name="freespeed" value="40.2336" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="2000.0" />
 			<param name="lanes" value="2.0" />
@@ -59,7 +59,7 @@
 			to and from a motorway.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="80" />
+			<param name="freespeed" value="40.2336" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="1500.0" />
 			<param name="lanes" value="1.0" />
@@ -72,7 +72,7 @@
 		<!-- Highway Trunk (= Important roads that are not motorways.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="80" />
+			<param name="freespeed" value="40.2336" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="2000.0" />
 			<param name="lanes" value="2.0" />
@@ -85,7 +85,7 @@
 		<!-- Highway Trunk Link (= Driveways or descents of an expressway) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="80" />
+			<param name="freespeed" value="40.2336" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="1500.0" />
 			<param name="lanes" value="1.0" />
@@ -98,7 +98,7 @@
 		<!-- Highway Primary (= A highway linking large towns.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="80" />
+			<param name="freespeed" value="40.2336" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="1500.0" />
 			<param name="lanes" value="1.0" />
@@ -111,7 +111,7 @@
 		<!-- Highway Primary Link (= Connecting or connecting ramp of a highway) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="80" />
+			<param name="freespeed" value="40.2336" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="1500.0" />
 			<param name="lanes" value="1.0" />
@@ -125,7 +125,7 @@
 		<!-- Highway Secondary (= A highway linking large towns.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="80" />
+			<param name="freespeed" value="40.2336" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="1000.0" />
 			<param name="lanes" value="1.0" />
@@ -138,7 +138,7 @@
 		<!-- Highway Secondary Link (= Connecting roads of minor roads) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="80" />
+			<param name="freespeed" value="40.2336" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="1000.0" />
 			<param name="lanes" value="1.0" />
@@ -153,7 +153,7 @@
 			centres of a large town or city.) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="80" />
+			<param name="freespeed" value="31.2928" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="600.0" />
 			<param name="lanes" value="1.0" />
@@ -166,7 +166,7 @@
 		<!-- Highway Tertiary Link (= Connecting roads of minor roads) -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="80" />
+			<param name="freespeed" value="31.2928" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="600.0" />
 			<param name="lanes" value="1.0" />
@@ -182,7 +182,7 @@
 			to 35 mph, see e.g. https://www.visitcalifornia.com/attraction/driving-california -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="80" />
+			<param name="freespeed" value="15.6464" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="600.0" />
 			<param name="lanes" value="1.0" />

@@ -21,7 +21,7 @@ public enum TaxiTripFinder {
      * @throws Exception */
     public static Collection<TaxiTrip> in(NavigableMap<LocalDateTime, TaxiStamp> timeTaxiStamps, //
             String taxiId) throws Exception {
-        List<TaxiTrip> reqs = new ArrayList<>();
+        List<TaxiTrip> taxiTrips = new ArrayList<>();
         int requestIndex = 0;
         boolean occLast = false;
         TaxiStamp stampStart = null;
@@ -40,11 +40,11 @@ public enum TaxiTripFinder {
                 TaxiTrip taxiTrip = TaxiTrip.of(requestIndex, taxiId, 
                         TensorCoords.toTensor(stampStart.gps), TensorCoords.toTensor(stampEnd.gps), //
                         distance, waitTime, pickupDateTime, dropOffDateTime);
-                reqs.add(taxiTrip);
+                taxiTrips.add(taxiTrip);
                 ++requestIndex;
             }
             occLast = occNow;
         }
-        return reqs;
+        return taxiTrips;
     }
 }
