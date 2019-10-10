@@ -17,6 +17,7 @@ import ch.ethz.idsc.amodeus.analysis.Analysis;
 import ch.ethz.idsc.amodeus.net.MatsimAmodeusDatabase;
 import ch.ethz.idsc.amodeus.options.ScenarioOptions;
 import ch.ethz.idsc.amodeus.options.ScenarioOptionsBase;
+import ch.ethz.idsc.amodeus.taxitrip.ExportTaxiTrips;
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
 import ch.ethz.idsc.amodeus.util.geo.ClosestLinkSelect;
@@ -38,7 +39,7 @@ import ch.ethz.idsc.tensor.qty.Quantity;
     private final Network network;
     private final File configFile;
     private final Config configFull;
-    private final int maxIter = 65000;
+    private final int maxIter = 80000;
     private DayTaxiRecord dayTaxiRecord;
     private ScenarioOptions simOptions;
     private final TaxiTripFilter taxiTripFilter;
@@ -92,7 +93,13 @@ import ch.ethz.idsc.tensor.qty.Quantity;
         List<TaxiTrip> trips = taxiTripFilter.filterStream(tripsAll.stream()).collect(Collectors.toList());
         System.out.println("Trips after filtering:  " + trips.size());
         taxiTripFilter.printSummary();
+        
+        /** STEP 4: Export final taxi trips */
+        ExportTaxiTrips.toFile(trips.stream(),new File(workingDirectory,"finalTrips.csv"));
 
+        
+        System.exit(1);
+        
         // taxiTripFilter.
         // ClosestLinkSelect linkSelect = new ClosestLinkSelect(db, qt);
         // AverageNetworkSpeed speedFilter = new AverageNetworkSpeed(network, linkSelect, simulationDate, timeConvert);
