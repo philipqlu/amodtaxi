@@ -3,9 +3,7 @@
 <config>
 
 	<!-- ====================================================================== -->
-
 	<module name="OsmConverter">
-
 		<!-- Sets whether the detailed geometry of the roads should be retained 
 			in the conversion or not. Keeping the detailed paths results in a much higher 
 			number of nodes and links in the resulting MATSim network. Not keeping the 
@@ -198,7 +196,7 @@
 		<!-- Highway Road, set to 35 mph, see e.g. https://www.visitcalifornia.com/attraction/driving-california -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="80" />
+			<param name="freespeed" value="15.6464" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="300.0" />
 			<param name="lanes" value="1.0" />
@@ -213,7 +211,7 @@
 			usually it is 25 mph in residential areas -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="20.1168" />
+			<param name="freespeed" value="15.6464" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="300.0" />
 			<param name="lanes" value="1.0" />
@@ -227,7 +225,7 @@
 			usually it is 25 mph in residential areas -->
 		<parameterset type="wayDefaultParams">
 			<param name="allowedTransportModes" value="car" />
-			<param name="freespeed" value="20.1168" />
+			<param name="freespeed" value="15.6464" />
 			<param name="freespeedFactor" value="1.0" />
 			<param name="laneCapacity" value="600.0" />
 			<param name="lanes" value="1.0" />
