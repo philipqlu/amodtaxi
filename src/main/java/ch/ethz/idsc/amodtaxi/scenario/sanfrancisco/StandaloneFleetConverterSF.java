@@ -27,18 +27,15 @@ import ch.ethz.idsc.amodtaxi.linkspeed.iterative.IterativeLinkSpeedEstimator;
 import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
 import ch.ethz.idsc.amodtaxi.tripfilter.TaxiTripFilter;
 import ch.ethz.idsc.tensor.Scalar;
-import ch.ethz.idsc.tensor.Scalars;
-import ch.ethz.idsc.tensor.qty.Quantity;
 
 /* package */ class StandaloneFleetConverterSF {
 
-    private static final String maxAverageSpeedIdentifier = "maxAvergaeSpeed";
     private final File workingDirectory;
     private final MatsimAmodeusDatabase db;
     private final Network network;
     private final File configFile;
     private final Config configFull;
-    private final int maxIter = 100000;
+    private final int maxIter = 100;
     private DayTaxiRecord dayTaxiRecord;
     private ScenarioOptions simOptions;
     private final TaxiTripFilter taxiTripFilter;
@@ -48,8 +45,6 @@ import ch.ethz.idsc.tensor.qty.Quantity;
     private final AmodeusTimeConvert timeConvert;
 
     private final Scalar TIME_STEP;
-
-    private final Quantity maxAverageSpeed;
 
     public StandaloneFleetConverterSF(File workingDirectory, DayTaxiRecord dayTaxiRecord, //
             MatsimAmodeusDatabase db, Network network, Scalar TIME_STEP, //
@@ -67,10 +62,6 @@ import ch.ethz.idsc.tensor.qty.Quantity;
         this.network = network;
         GlobalAssert.that(Objects.nonNull(network));
         qt = CreateQuadTree.of(network);
-        maxAverageSpeed = (Quantity) Scalars.fromString(simOptions.getString(maxAverageSpeedIdentifier));
-        System.out.println("maxAverageSpeed: " + maxAverageSpeed);
-        System.out.println("maxAverageSpeed unit: " + maxAverageSpeed.unit());
-        System.out.println("maxAverageSpeed value: " + maxAverageSpeed.value());
     }
 
     public void run(LocalDate simulationDate) throws Exception {

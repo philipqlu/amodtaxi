@@ -22,7 +22,7 @@ import ch.ethz.idsc.tensor.io.DeleteDirectory;
 
         CopyOption[] options = new CopyOption[] { StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.COPY_ATTRIBUTES };
 
-        String[] fileNames = new String[] { "av.xml", "AmodeusOptions.properties", "linkSpeedData", "network.xml.gz" };
+        String[] fileNames = new String[] { "AmodeusOptions.properties", "LPOptions.properties", "linkSpeedData", "network.xml.gz" };
 
         for (String fileName : fileNames) {
             Path source = Paths.get(originDir, fileName);

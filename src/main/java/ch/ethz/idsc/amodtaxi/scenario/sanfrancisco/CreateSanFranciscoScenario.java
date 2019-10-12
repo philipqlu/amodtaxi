@@ -55,7 +55,7 @@ public class CreateSanFranciscoScenario {
         /** copy other scenario files */
         File settingsDir = new File(Locate.repoFolder(CreateSanFranciscoScenario.class, "amodtaxi"), "resources/sanFranciscoScenario");
         CopyFiles.now(settingsDir.getAbsolutePath(), processingDir.getAbsolutePath(), //
-                Arrays.asList(new String[] { "AmodeusOptions.properties", "av.xml", "config_full.xml", "config.xml", //
+                Arrays.asList(new String[] { "AmodeusOptions.properties", "LPOptions.properties", "config_full.xml", //
                         "config_fullPublish.xml", "pt2matsim_settings.xml" }),
                 true);
 
@@ -81,9 +81,9 @@ public class CreateSanFranciscoScenario {
                 /** trips which are faster than the network freeflow speeds would allow are removed */
                 finalTripFilter.addFilter(new TripNetworkFilter(network, db, //
                         Quantity.of(5.5, "m*s^-1"), Quantity.of(3600, "s"), Quantity.of(200, "m")));
-                
+
                 StandaloneFleetConverterSF sfc = new StandaloneFleetConverterSF(processingDir, //
-                        dayTaxiRecord, db, network, timeStep, timeConvert,finalTripFilter);
+                        dayTaxiRecord, db, network, timeStep, timeConvert, finalTripFilter);
                 sfc.run(localDate);
 
                 /** copy scenario to new location */
@@ -103,7 +103,7 @@ public class CreateSanFranciscoScenario {
             }
         }
 
-        /** test consistency of created scenarios with independent analysis */
-        TaxiData scenarioData = CreateSanFranciscoStaticAnalysis.runStaticAnalysis(destinDir, traceFiles, network, db);
+        // /** test consistency of created scenarios with independent analysis */
+        // TaxiData scenarioData = CreateSanFranciscoStaticAnalysis.runStaticAnalysis(destinDir, traceFiles, network, db);
     }
 }
