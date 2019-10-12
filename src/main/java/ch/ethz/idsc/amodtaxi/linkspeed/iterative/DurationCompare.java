@@ -6,7 +6,6 @@ import org.matsim.core.router.util.LeastCostPathCalculator.Path;
 import ch.ethz.idsc.amodeus.taxitrip.ShortestDurationCalculator;
 import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.tensor.Scalar;
-import ch.ethz.idsc.tensor.Scalars;
 import ch.ethz.idsc.tensor.qty.Quantity;
 
 /** Helper class to compare the duration of a taxi trip (from live data)
