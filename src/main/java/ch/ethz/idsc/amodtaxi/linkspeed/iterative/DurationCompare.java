@@ -24,7 +24,7 @@ public class DurationCompare {
 
     public DurationCompare(TaxiTrip trip, ShortestDurationCalculator calc) {
         path = calc.computePath(trip);
-        pathTime = Quantity.of(path.travelTime, "s");        
+        pathTime = Quantity.of(path.travelTime, "s");
         pathDist = Quantity.of(path.links.stream().mapToDouble(l -> l.getLength()).sum(), "m");
         duration = trip.duration;
         nwPathDurationRatio = pathTime.divide(duration);
