@@ -2,6 +2,7 @@
 package ch.ethz.idsc.amodtaxi.scenario.sanfrancisco;
 
 import java.io.File;
+import java.net.URL;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -81,6 +82,8 @@ public class SanFranciscoScenarioCreation extends ScenarioCreation {
             traceFiles = TraceFileChoice.getOrDefault(new File(dataDirectory, "cabspottingdata"), "new_").random(numTraceFiles);
         } else {
             System.out.println("no data directory provided");
+            System.out.println("Full data by by Michal Piorkowski, Natasa Sarafijanovic-Djukic, and Matthias Grossglauser can be downloaded from: " //
+                    + new URL("https://crawdad.org/epfl/mobility/20090224/"));
             traceFiles = TraceFileChoice.getDefault().random(NUM_TRACE_FILES);
         }
         return of(workingDirectory, traceFiles, dates);
