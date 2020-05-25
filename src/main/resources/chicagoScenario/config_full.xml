@@ -1,52 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE config SYSTEM "./dtd/config_v2.dtd">
+<!DOCTYPE config SYSTEM "http://www.matsim.org/files/dtd/config_v2.dtd">
 
 <config>
-	<module name="av">
-		<param name="allowedLinkMode" value="car" />
-		<param name="enableDistanceAnalysis" value="false" />
-		<param name="numberOfParallelRouters" value="4" />
-		<param name="passengerAnalysisInterval" value="0" />
-		<param name="useAccessEgress" value="false" />
-		<param name="vehicleAnalysisInterval" value="0" />
-		<parameterset type="operator">
-			<param name="allowedLinkAttribute" value="null" />
-			<param name="cleanNetwork" value="false" />
-			<param name="id" value="default" />
-			<param name="predictRoutePrice" value="false" />
-			<param name="predictRouteTravelTime" value="true" />
-			<parameterset type="dispatcher">
-				<param name="type" value="DemandSupplyBalancingDispatcher" />
-				<param name="dispatchPeriod" value="10" />
-			</parameterset>
-			<parameterset type="generator">
-				<param name="numberOfVehicles" value="500" />
-				<param name="type" value="PopulationDensity" />
-				<param name="vehicleType" value="null" />
-			</parameterset>
-			<parameterset type="pricing">
-				<param name="pricePerKm" value="0.001" />
-				<param name="pricePerMin" value="0.0" />
-				<param name="pricePerTrip" value="3.0" />
-				<param name="spatialBillingInterval" value="1.0" />
-				<param name="temporalBillingInterval" value="1.0" />
-			</parameterset>
-			<parameterset type="router">
-				<param name="type" value="TaxiTravelTimeRouter" />
-			</parameterset>
-			<parameterset type="timing">
-				<param name="dropoffDurationPerPassenger" value="0.0" />
-				<param name="dropoffDurationPerStop" value="10.0" />
-				<param name="pickupDurationPerPassenger" value="0.0" />
-				<param name="pickupDurationPerStop" value="15.0" />
-			</parameterset>
-		</parameterset>
-		<parameterset type="scoring">
-			<param name="marginalUtilityOfWaiting" value="-1.0" />
-			<param name="stuckUtility" value="-1000.0" />
-			<param name="subpopulation" value="null" />
-		</parameterset>
-	</module>
+    <module name="amodeus">
+    	<parameterset type="mode">
+    		<param name="mode" value="av" />
+
+    		<parameterset type="generator">
+    			<param name="type" value="PopulationDensity" />
+    			<param name="numberOfVehicles" value="50" />
+    		</parameterset>
+
+    		<parameterset type="dispatcher">
+    			<param name="type" value="ModelFreeAdaptiveRepositioning" />
+    			<param name="dispatchPeriod" value="10" />
+    			<param name="infoLinePeriod" value="3600" />
+    			<param name="publishPeriod" value="120" />
+    		</parameterset>
+
+    		<parameterset type="timing">
+    			<param name="pickupDurationPerStop" value="15.0" />
+    			<param name="pickupDurationPerPassenger" value="0.0" />
+    			<param name="dropoffDurationPerStop" value="10.0" />
+    			<param name="dropoffDurationPerPassenger" value="0.0" />
+    		</parameterset>
+
+  			<parameterset type="pricing">
+  				<param name="pricePerKm" value="0.001" />
+  				<param name="pricePerMin" value="0.0" />
+  				<param name="pricePerTrip" value="3.0" />
+  			</parameterset>
+    	</parameterset>
+    </module>
 
 	<module name="network">
 		<param name="inputNetworkFile" value="network.xml.gz" />
@@ -54,47 +39,6 @@
 
 	<module name="plans">
 		<param name="inputPlansFile" value="population.xml.gz" />
-	</module>
-
-	<module name="planscalcroute" >
-		<!-- Some typical teleportation routing params are set by default, such as for walk and bike.  Setting this switch to "true" will clear them.  Note that this will also clear settings for helper modes such as for non_network_walk -->
-		<param name="clearDefaultTeleportedModeParams" value="false" />
-		<!-- All the modes for which the router is supposed to generate network routes (like car) -->
-		<param name="networkModes" value="car" />
-		<!-- strength of the randomness for the utility of money in routing under toll.  Leads to Pareto-optimal route with randomly drawn money-vs-other-attributes tradeoff. Technically the width parameter of a log-normal distribution. 3.0 seems to be a good value.  -->
-		<param name="routingRandomness" value="0.0" />
-		<parameterset type="teleportedModeParameters" >
-			<param name="beelineDistanceFactor" value="1.3" />
-			<param name="mode" value="bike" />
-			<!-- Free-speed factor for a teleported mode. Travel time = teleportedModeFreespeedFactor * <freespeed car travel time>. Insert a line like this for every such mode. Please do not set teleportedModeFreespeedFactor as well as teleportedModeSpeed for the same mode, but if you do, +teleportedModeFreespeedFactor wins over teleportedModeSpeed. -->
-			<param name="teleportedModeFreespeedFactor" value="null" />
-			<!-- Speed for a teleported mode. Travel time = (<beeline distance> * beelineDistanceFactor) / teleportedModeSpeed. Insert a line like this for every such mode. -->
-			<param name="teleportedModeSpeed" value="4.166666666666667" />
-		</parameterset>
-		<parameterset type="teleportedModeParameters" >
-			<param name="beelineDistanceFactor" value="1.3" />
-			<param name="mode" value="walk" />
-			<param name="teleportedModeFreespeedFactor" value="null" />
-			<param name="teleportedModeSpeed" value="0.8333333333333333" />
-		</parameterset>
-		<parameterset type="teleportedModeParameters" >
-			<param name="beelineDistanceFactor" value="1.3" />
-			<param name="mode" value="non_network_walk" />
-			<param name="teleportedModeFreespeedFactor" value="null" />
-			<param name="teleportedModeSpeed" value="0.8333333333333333" />
-		</parameterset>
-		<parameterset type="teleportedModeParameters" >
-			<param name="beelineDistanceFactor" value="1.3" />
-			<param name="mode" value="ride" />
-			<param name="teleportedModeFreespeedFactor" value="1.0" />
-			<param name="teleportedModeSpeed" value="null" />
-		</parameterset>
-		<parameterset type="teleportedModeParameters" >
-			<param name="beelineDistanceFactor" value="1.3" />
-			<param name="mode" value="pt" />
-			<param name="teleportedModeFreespeedFactor" value="2.0" />
-			<param name="teleportedModeSpeed" value="null" />
-		</parameterset>
 	</module>
 
 	<module name="controler">
@@ -125,8 +69,8 @@
 
 		<!-- `queue' for the standard queue model, `withHolesExperimental' (experimental!!) for the queue model with holes -->
 		<param name="trafficDynamics" value="queue" />
-		<param name="simStarttimeInterpretation" value="onlyUseStarttime" />
 
+		<param name="simStarttimeInterpretation" value="onlyUseStarttime" />
 	</module>
 
 	<module name="planCalcScore">
