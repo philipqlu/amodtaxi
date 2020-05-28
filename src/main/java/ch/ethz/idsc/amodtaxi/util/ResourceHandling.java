@@ -22,7 +22,7 @@ public enum ResourceHandling {
                 new CopyOption[] { StandardCopyOption.COPY_ATTRIBUTES, StandardCopyOption.REPLACE_EXISTING } : //
                 new CopyOption[] { StandardCopyOption.COPY_ATTRIBUTES };
         File tmp = getResourceAsFile(clazz, source.startsWith("/") ? source : ("/" + source));
-        Files.copy(Path.of(tmp.getAbsolutePath()), target);
+        Files.copy(Path.of(tmp.getAbsolutePath()), target, options);
     }
 
     private static File getResourceAsFile(Class clazz, String resourcePath) {
