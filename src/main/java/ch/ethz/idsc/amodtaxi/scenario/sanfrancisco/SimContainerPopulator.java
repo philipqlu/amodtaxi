@@ -39,9 +39,8 @@ import ch.ethz.idsc.tensor.io.Serialization;
         VehicleContainer vc = new VehicleContainer();
         vc.vehicleIndex = vehicleIndex;
         vc.linkTrace = new int[] { linkIndex };
-        vc.roboTaxiStatus = taxiStamp.roboTaxiStatus;
+        vc.statii = new RoboTaxiStatus[] { Objects.requireNonNull(taxiStamp.roboTaxiStatus) };
         vc.destinationLinkIndex = linkIndex; // TODO this is just temporary, need to do properly
-        GlobalAssert.that(Objects.nonNull(vc.roboTaxiStatus));
         simulationObject.vehicles.add(vc);
 
         /** request containers */
@@ -73,7 +72,7 @@ import ch.ethz.idsc.tensor.io.Serialization;
         VehicleContainer vc = new VehicleContainer();
         vc.vehicleIndex = vehicleIndex;
         vc.linkTrace = new int[] { 1 };
-        vc.roboTaxiStatus = RoboTaxiStatus.STAY;
+        vc.statii = new RoboTaxiStatus[] { RoboTaxiStatus.STAY };
         simulationObject.vehicles.add(vc);
     }
 }
