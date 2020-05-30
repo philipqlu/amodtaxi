@@ -4,9 +4,10 @@ package ch.ethz.idsc.amodtaxi.scenario;
 import java.io.File;
 import java.util.Arrays;
 
-import ch.ethz.idsc.amodeus.matsim.NetworkLoader;
 import ch.ethz.idsc.amodeus.util.io.CopyFiles;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import ch.ethz.idsc.amodeus.util.matsim.NetworkLoader;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;

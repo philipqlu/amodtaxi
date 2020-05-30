@@ -13,9 +13,9 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import ch.ethz.idsc.amodeus.matsim.xml.XmlCustomModifier;
 import ch.ethz.idsc.amodeus.util.io.CopyFiles;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import ch.ethz.idsc.amodeus.util.matsim.xml.XmlCustomModifier;
 import ch.ethz.idsc.tensor.io.DeleteDirectory;
 
 public class Pt2MatsimXMLTest {

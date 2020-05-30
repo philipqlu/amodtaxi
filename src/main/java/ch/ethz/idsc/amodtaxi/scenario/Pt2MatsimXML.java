@@ -7,7 +7,7 @@ import java.util.Map;
 import org.jdom2.Document;
 import org.jdom2.Element;
 
-import ch.ethz.idsc.amodeus.matsim.xml.XmlCustomModifier;
+import ch.ethz.idsc.amodeus.util.matsim.xml.XmlCustomModifier;
 
 public enum Pt2MatsimXML {
     ;

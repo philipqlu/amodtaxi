@@ -5,9 +5,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
-import ch.ethz.idsc.amodeus.matsim.NetworkLoader;
 import ch.ethz.idsc.amodeus.util.io.CopyFiles;
 import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import ch.ethz.idsc.amodeus.util.matsim.NetworkLoader;
 import ch.ethz.idsc.amodtaxi.osm.StaticMapCreator;
 import ch.ethz.idsc.tensor.io.DeleteDirectory;
 import org.junit.AfterClass;
