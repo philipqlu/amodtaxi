@@ -1,3 +1,5 @@
+default_cabspottingdata/
+
 # maven
 target/
 pom.xml.tag
