@@ -1,8 +1,8 @@
 /* amodtaxi - Copyright (c) 2019, ETH Zurich, Institute for Dynamic Systems and Control */
 package ch.ethz.idsc.amodtaxi.scenario.chicago;
 
-import ch.ethz.idsc.amodeus.data.LocationSpec;
-import ch.ethz.idsc.amodeus.data.LocationSpecDatabase;
+import amodeus.amodeus.data.LocationSpec;
+import amodeus.amodeus.data.LocationSpecDatabase;
 import junit.framework.TestCase;
 
 public class ChicagoGeoInformationTest extends TestCase {

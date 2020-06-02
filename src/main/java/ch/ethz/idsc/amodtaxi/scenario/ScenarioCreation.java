@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
-import ch.ethz.idsc.amodeus.net.MatsimAmodeusDatabase;
-import ch.ethz.idsc.amodeus.taxitrip.ImportTaxiTrips;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.net.MatsimAmodeusDatabase;
+import amodeus.amodeus.taxitrip.ImportTaxiTrips;
+import amodeus.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodtaxi.linkspeed.iterative.IterativeLinkSpeedEstimator;
 import org.matsim.api.core.v01.network.Network;
 

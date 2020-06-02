@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.NavigableMap;
 
-import ch.ethz.idsc.amodeus.net.TensorCoords;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.net.TensorCoords;
+import amodeus.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 
 public enum TaxiTripFinder {

@@ -4,15 +4,14 @@ package ch.ethz.idsc.amodtaxi.scenario;
 import java.io.File;
 import java.io.IOException;
 
+import amodeus.amodeus.util.io.GZHandler;
+import amodeus.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.matsim.NetworkLoader;
+import amodeus.amodeus.util.network.LinkModes;
 import ch.ethz.idsc.amodtaxi.osm.StaticMapCreator;
 import org.matsim.api.core.v01.network.Network;
 import org.matsim.core.network.algorithms.NetworkCleaner;
 import org.matsim.core.network.io.NetworkWriter;
-
-import ch.ethz.idsc.amodeus.util.io.GZHandler;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodeus.util.matsim.NetworkLoader;
-import ch.ethz.idsc.amodeus.util.network.LinkModes;
 
 public enum ScenarioBasicNetworkPreparer {
     ;

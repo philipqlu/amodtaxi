@@ -11,10 +11,9 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import ch.ethz.idsc.amodeus.util.io.Locate;
-import ch.ethz.idsc.amodeus.util.io.MultiFileReader;
-import ch.ethz.idsc.amodeus.util.io.MultiFileTools;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.io.MultiFileReader;
+import amodeus.amodeus.util.io.MultiFileTools;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.util.RandomElements;
 import ch.ethz.idsc.amodtaxi.util.ResourceHandling;
 

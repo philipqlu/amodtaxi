@@ -11,18 +11,18 @@ import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import amodeus.amodeus.dispatcher.util.TensorLocation;
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.prep.NetworkCreatorUtils;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.network.NodeAdjacencyMap;
+import amodeus.amodeus.virtualnetwork.CentroidVirtualNetworkCreator;
+import amodeus.amodeus.virtualnetwork.core.VirtualNetwork;
+import amodeus.amodeus.virtualnetwork.core.VirtualNetworkIO;
 import org.matsim.api.core.v01.network.Link;
 import org.matsim.api.core.v01.network.Network;
 import org.matsim.api.core.v01.network.Node;
 
-import ch.ethz.idsc.amodeus.dispatcher.util.TensorLocation;
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
-import ch.ethz.idsc.amodeus.prep.NetworkCreatorUtils;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.network.NodeAdjacencyMap;
-import ch.ethz.idsc.amodeus.virtualnetwork.CentroidVirtualNetworkCreator;
-import ch.ethz.idsc.amodeus.virtualnetwork.core.VirtualNetwork;
-import ch.ethz.idsc.amodeus.virtualnetwork.core.VirtualNetworkIO;
 import ch.ethz.idsc.tensor.Tensor;
 
 public class OriginDestinationCentroidResampling implements TripModifier {

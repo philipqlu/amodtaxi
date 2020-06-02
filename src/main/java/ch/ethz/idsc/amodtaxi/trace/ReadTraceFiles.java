@@ -4,7 +4,7 @@ package ch.ethz.idsc.amodtaxi.trace;
 import java.io.File;
 import java.util.Collection;
 
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.scenario.Consistency;
 
 public enum ReadTraceFiles {

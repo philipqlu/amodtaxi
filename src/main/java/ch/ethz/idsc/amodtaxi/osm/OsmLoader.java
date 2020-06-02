@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.tensor.Tensor;
 import ch.ethz.idsc.tensor.Tensors;
 

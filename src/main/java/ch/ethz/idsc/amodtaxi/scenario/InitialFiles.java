@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.tensor.io.DeleteDirectory;
 
 /* package */ enum InitialFiles {

@@ -11,9 +11,9 @@ import java.util.Map;
 import java.util.NavigableMap;
 import java.util.Objects;
 
-import ch.ethz.idsc.amodeus.dispatcher.core.RequestStatus;
-import ch.ethz.idsc.amodeus.dispatcher.core.RoboTaxiStatus;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.dispatcher.core.RequestStatus;
+import amodeus.amodeus.dispatcher.core.RoboTaxiStatus;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 import ch.ethz.idsc.tensor.io.DeleteDirectory;
 

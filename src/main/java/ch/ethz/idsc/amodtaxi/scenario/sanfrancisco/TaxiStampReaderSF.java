@@ -4,11 +4,11 @@ package ch.ethz.idsc.amodtaxi.scenario.sanfrancisco;
 import java.time.ZoneId;
 import java.util.List;
 
+import amodeus.amodeus.util.AmodeusTimeConvert;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.scenario.data.TaxiStampReader;
 import org.matsim.api.core.v01.Coord;
 
-import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 
 public enum TaxiStampReaderSF implements TaxiStampReader {

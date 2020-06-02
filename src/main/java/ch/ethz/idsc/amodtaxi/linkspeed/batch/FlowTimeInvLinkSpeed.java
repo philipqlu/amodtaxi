@@ -8,16 +8,16 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import amodeus.amodeus.linkspeed.LinkSpeedDataContainer;
+import amodeus.amodeus.net.MatsimAmodeusDatabase;
+import amodeus.amodeus.taxitrip.ShortestDurationCalculator;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.taxitrip.TaxiTripCheck;
+import amodeus.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.math.SI;
 import org.matsim.api.core.v01.network.Link;
 import org.matsim.api.core.v01.network.Network;
 
-import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedDataContainer;
-import ch.ethz.idsc.amodeus.net.MatsimAmodeusDatabase;
-import ch.ethz.idsc.amodeus.taxitrip.ShortestDurationCalculator;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTripCheck;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodeus.util.math.SI;
 import ch.ethz.idsc.amodtaxi.linkspeed.TaxiLinkSpeedEstimator;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Scalar;

@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
 import ch.ethz.idsc.amodtaxi.trace.TaxiTrail;
 

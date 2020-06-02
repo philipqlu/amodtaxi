@@ -4,13 +4,13 @@ package ch.ethz.idsc.amodtaxi.linkspeed.batch;
 import java.time.LocalDate;
 import java.util.Objects;
 
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.AmodeusTimeConvert;
+import amodeus.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.math.SI;
 import org.matsim.api.core.v01.network.Link;
 
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodeus.util.math.SI;
 import ch.ethz.idsc.tensor.Scalars;
 import ch.ethz.idsc.tensor.qty.Quantity;
 

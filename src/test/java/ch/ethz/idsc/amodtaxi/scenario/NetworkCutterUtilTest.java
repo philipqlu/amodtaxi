@@ -4,17 +4,16 @@ package ch.ethz.idsc.amodtaxi.scenario;
 import java.io.File;
 import java.util.Collections;
 
-import ch.ethz.idsc.amodeus.util.io.CopyFiles;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodeus.util.matsim.NetworkLoader;
-
+import amodeus.amodeus.util.io.CopyFiles;
+import amodeus.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.matsim.NetworkLoader;
+import amodeus.amodeus.util.network.LinkModes;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.matsim.api.core.v01.network.Network;
 
-import ch.ethz.idsc.amodeus.util.network.LinkModes;
 import ch.ethz.idsc.tensor.io.DeleteDirectory;
 
 public class NetworkCutterUtilTest {

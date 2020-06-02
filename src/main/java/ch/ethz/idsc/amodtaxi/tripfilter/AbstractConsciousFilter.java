@@ -1,7 +1,7 @@
 /* amodeus - Copyright (c) 2019, ETH Zurich, Institute for Dynamic Systems and Control */
 package ch.ethz.idsc.amodtaxi.tripfilter;
 
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.taxitrip.TaxiTrip;
 
 /* package */ abstract class AbstractConsciousFilter implements ConsciousFilter {
 

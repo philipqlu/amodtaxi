@@ -8,8 +8,8 @@ import java.util.LinkedList;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import ch.ethz.idsc.amodeus.util.Duration;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.Duration;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Tensor;

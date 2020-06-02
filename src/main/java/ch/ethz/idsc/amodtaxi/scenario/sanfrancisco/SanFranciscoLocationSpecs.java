@@ -1,10 +1,9 @@
 /* amod - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
 package ch.ethz.idsc.amodtaxi.scenario.sanfrancisco;
 
+import amodeus.amodeus.data.LocationSpec;
+import amodeus.amodeus.data.ReferenceFrame;
 import org.matsim.api.core.v01.Coord;
-
-import ch.ethz.idsc.amodeus.data.LocationSpec;
-import ch.ethz.idsc.amodeus.data.ReferenceFrame;
 
 /* package */ enum SanFranciscoLocationSpecs implements LocationSpec {
     SANFRANCISCO( //
@@ -17,7 +16,7 @@ import ch.ethz.idsc.amodeus.data.ReferenceFrame;
      * increasing the second value goes north */
     private final Coord center;
 
-    private SanFranciscoLocationSpecs(ReferenceFrame referenceFrame, Coord center) {
+    SanFranciscoLocationSpecs(ReferenceFrame referenceFrame, Coord center) {
         this.referenceFrame = referenceFrame;
         this.center = center;
     }

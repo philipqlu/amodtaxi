@@ -1,6 +1,6 @@
 package ch.ethz.idsc.amodtaxi.tripmodif;
 
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.taxitrip.TaxiTrip;
 
 public class RenumerationModifier implements TripModifier {
     private int localId = 0;

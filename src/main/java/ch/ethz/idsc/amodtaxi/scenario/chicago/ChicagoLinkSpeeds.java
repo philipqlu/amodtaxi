@@ -5,19 +5,19 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedUtils;
+import amodeus.amodeus.linkspeed.LinkSpeedUtils;
+import amodeus.amodeus.net.MatsimAmodeusDatabase;
+import amodeus.amodeus.options.ScenarioOptions;
+import amodeus.amodeus.options.ScenarioOptionsBase;
+import amodeus.amodeus.taxitrip.ImportTaxiTrips;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.matsim.NetworkLoader;
 import ch.ethz.idsc.amodtaxi.scenario.ScenarioLabels;
 import org.matsim.api.core.v01.network.Network;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
 
-import ch.ethz.idsc.amodeus.net.MatsimAmodeusDatabase;
-import ch.ethz.idsc.amodeus.options.ScenarioOptions;
-import ch.ethz.idsc.amodeus.options.ScenarioOptionsBase;
-import ch.ethz.idsc.amodeus.taxitrip.ImportTaxiTrips;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodeus.util.matsim.NetworkLoader;
 import ch.ethz.idsc.amodtaxi.linkspeed.TaxiLinkSpeedEstimator;
 import ch.ethz.idsc.amodtaxi.linkspeed.batch.FlowTimeInvLinkSpeed;
 import ch.ethz.idsc.amodtaxi.linkspeed.batch.GLPKLinOptDelayCalculator;

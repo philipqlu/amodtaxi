@@ -3,13 +3,13 @@ package ch.ethz.idsc.amodtaxi.scenario.sanfrancisco;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 
-import ch.ethz.idsc.amodeus.dispatcher.core.RequestStatus;
-import ch.ethz.idsc.amodeus.net.RequestContainer;
-import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.dispatcher.core.RequestStatus;
+import amodeus.amodeus.net.RequestContainer;
+import amodeus.amodeus.util.AmodeusTimeConvert;
+import amodeus.amodeus.util.math.GlobalAssert;
 
 /* package */ class RequestContainerFactory {
     private final String requestIndex;
@@ -35,7 +35,7 @@ import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
         requestContainer.fromLinkIndex = fromLinkIndex;
         requestContainer.toLinkIndex = toLinkIndex;
         requestContainer.submissionTime = timeConvert.ldtToAmodeus(submissionTime, simulationDate);
-        requestContainer.requestStatus = new HashSet<>(Arrays.asList(status));
+        requestContainer.requestStatus = new HashSet<>(Collections.singletonList(status));
         return requestContainer;
     }
 }

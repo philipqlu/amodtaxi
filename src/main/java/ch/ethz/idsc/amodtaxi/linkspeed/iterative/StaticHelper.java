@@ -5,18 +5,20 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 
-import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedUtils;
+import amodeus.amodeus.analysis.plot.AmodeusChartUtils;
+import amodeus.amodeus.analysis.plot.ColorDataAmodeus;
+import amodeus.amodeus.linkspeed.LinkSpeedDataContainer;
+import amodeus.amodeus.linkspeed.LinkSpeedUtils;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.io.SaveFormats;
+import amodeus.amodeus.util.math.GlobalAssert;
+import amodeus.tensor.fig.Histogram;
+import amodeus.tensor.fig.VisualSet;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAnchor;
 import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.plot.CategoryPlot;
 
-import ch.ethz.idsc.amodeus.analysis.plot.AmodeusChartUtils;
-import ch.ethz.idsc.amodeus.analysis.plot.ColorDataAmodeus;
-import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedDataContainer;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.io.SaveFormats;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.tensor.RationalScalar;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Scalar;
@@ -24,8 +26,6 @@ import ch.ethz.idsc.tensor.Scalars;
 import ch.ethz.idsc.tensor.Tensor;
 import ch.ethz.idsc.tensor.Tensors;
 import ch.ethz.idsc.tensor.alg.Range;
-import ch.ethz.idsc.tensor.fig.Histogram;
-import ch.ethz.idsc.tensor.fig.VisualSet;
 import ch.ethz.idsc.tensor.pdf.BinCounts;
 
 /* package */ enum StaticHelper {

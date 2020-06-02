@@ -4,11 +4,11 @@ package ch.ethz.idsc.amodtaxi.linkspeed.batch;
 import java.util.Collection;
 import java.util.SortedMap;
 
+import amodeus.amodeus.linkspeed.LinkSpeedDataContainer;
+import amodeus.amodeus.linkspeed.LinkSpeedTimeSeries;
+import amodeus.amodeus.util.math.GlobalAssert;
 import org.matsim.api.core.v01.network.Link;
 
-import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedDataContainer;
-import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedTimeSeries;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Tensor;

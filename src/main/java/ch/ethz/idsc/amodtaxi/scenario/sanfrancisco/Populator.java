@@ -4,15 +4,14 @@ package ch.ethz.idsc.amodtaxi.scenario.sanfrancisco;
 import java.time.LocalDate;
 import java.util.Collection;
 
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.taxitrip.PersonCreate;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.AmodeusTimeConvert;
+import amodeus.amodeus.util.math.GlobalAssert;
 import org.matsim.api.core.v01.population.Person;
 import org.matsim.api.core.v01.population.Population;
 import org.matsim.api.core.v01.population.PopulationFactory;
-
-import ch.ethz.idsc.amodeus.taxitrip.PersonCreate;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 
 @Deprecated
 /* package */ class Populator {

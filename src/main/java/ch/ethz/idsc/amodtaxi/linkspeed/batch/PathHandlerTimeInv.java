@@ -4,12 +4,12 @@ package ch.ethz.idsc.amodtaxi.linkspeed.batch;
 import java.util.ArrayList;
 import java.util.List;
 
+import amodeus.amodeus.taxitrip.ShortestDurationCalculator;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.math.SI;
 import org.matsim.api.core.v01.network.Link;
 import org.matsim.core.router.util.LeastCostPathCalculator.Path;
 
-import ch.ethz.idsc.amodeus.taxitrip.ShortestDurationCalculator;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.math.SI;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;
 import ch.ethz.idsc.tensor.qty.Quantity;
@@ -21,7 +21,6 @@ import ch.ethz.idsc.tensor.qty.Quantity;
     private final boolean isValid;
 
     public PathHandlerTimeInv(TaxiTrip taxiTrip, ShortestDurationCalculator calc) {
-
         /** compute fastest path */
         Path fastest = calc.computePath(taxiTrip);
 
@@ -33,7 +32,6 @@ import ch.ethz.idsc.tensor.qty.Quantity;
         travelledLinks = new ArrayList<>(fastest.links);
 
         isValid = Scalars.lessEquals(freeflowDuation, duration);
-
     }
 
     public boolean isValid() {

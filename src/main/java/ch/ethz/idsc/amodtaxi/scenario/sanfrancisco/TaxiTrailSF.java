@@ -9,11 +9,11 @@ import java.util.NavigableMap;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
 
-import ch.ethz.idsc.amodeus.dispatcher.core.RequestStatus;
-import ch.ethz.idsc.amodeus.dispatcher.core.RoboTaxiStatus;
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.dispatcher.core.RequestStatus;
+import amodeus.amodeus.dispatcher.core.RoboTaxiStatus;
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.scenario.TaxiTripFinder;
 import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 import ch.ethz.idsc.amodtaxi.trace.TaxiTrail;

@@ -5,11 +5,11 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import amodeus.amodeus.linkspeed.LinkSpeedDataContainer;
+import amodeus.amodeus.linkspeed.LinkSpeedTimeSeries;
 import org.matsim.api.core.v01.network.Link;
 import org.matsim.api.core.v01.network.Network;
 
-import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedDataContainer;
-import ch.ethz.idsc.amodeus.linkspeed.LinkSpeedTimeSeries;
 import ch.ethz.idsc.amodtaxi.linkspeed.NeighborKernel;
 import ch.ethz.idsc.tensor.Scalar;
 

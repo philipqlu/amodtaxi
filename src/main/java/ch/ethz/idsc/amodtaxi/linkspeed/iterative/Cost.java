@@ -4,7 +4,7 @@ package ch.ethz.idsc.amodtaxi.linkspeed.iterative;
 import java.util.List;
 import java.util.Map;
 
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Tensor;

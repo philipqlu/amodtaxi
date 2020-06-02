@@ -10,7 +10,8 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.tensor.red.Total;
 import org.matsim.api.core.v01.network.Link;
 import org.matsim.api.core.v01.network.Network;
@@ -20,7 +21,6 @@ import org.matsim.core.router.util.LeastCostPathCalculator;
 import org.matsim.core.router.util.LeastCostPathCalculator.Path;
 import org.matsim.core.trafficmonitoring.FreeSpeedTravelTime;
 
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;
 import ch.ethz.idsc.tensor.Tensor;

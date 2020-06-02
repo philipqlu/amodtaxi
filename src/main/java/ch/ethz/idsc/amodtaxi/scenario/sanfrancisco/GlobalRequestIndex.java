@@ -6,8 +6,6 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-
 public class GlobalRequestIndex {
     private HashMap<VehReqPair, Integer> reqMap = new HashMap<>();
 

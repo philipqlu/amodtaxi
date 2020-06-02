@@ -3,7 +3,7 @@ package ch.ethz.idsc.amodtaxi.scenario.sanfrancisco;
 
 import java.io.File;
 
-import ch.ethz.idsc.amodeus.util.io.Locate;
+import amodeus.amodeus.util.io.Locate;
 import ch.ethz.idsc.amodtaxi.scenario.ScenarioSetup;
 
 /* package */ enum SanFranciscoSetup {

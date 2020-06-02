@@ -1,20 +1,17 @@
 /* amodeus - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
 package ch.ethz.idsc.amodtaxi.tripfilter;
 
+import amodeus.amodeus.net.MatsimAmodeusDatabase;
+import amodeus.amodeus.taxitrip.ShortestDurationCalculator;
+import amodeus.amodeus.taxitrip.TaxiTrip;
 import org.matsim.api.core.v01.network.Network;
 
-import ch.ethz.idsc.amodeus.analysis.SaveUtils;
-import ch.ethz.idsc.amodeus.analysis.UnitSaveUtils;
-import ch.ethz.idsc.amodeus.net.MatsimAmodeusDatabase;
-import ch.ethz.idsc.amodeus.taxitrip.ShortestDurationCalculator;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodtaxi.linkspeed.iterative.DurationCompare;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;
 import ch.ethz.idsc.tensor.Tensor;
 import ch.ethz.idsc.tensor.Tensors;
-import ch.ethz.idsc.tensor.io.HomeDirectory;
 
 /** This filter calculates the min-time-path in the network without traffic.
  * Then, only trips are kept which:
@@ -24,14 +21,12 @@ import ch.ethz.idsc.tensor.io.HomeDirectory;
  * - are longer than a minimum distance
  * - have a nontrivial path of more than 1 link */
 public class TripNetworkFilter extends AbstractConsciousFilter {
-
     private final ShortestDurationCalculator calc;
     private final Scalar maxDelay;
     private final Scalar minSpeed;
     private final Scalar minDistance;
     private final boolean checkSlowerNetwork;
 
-    // ---
     private int numslowerThanNetwork = 0;
     private int numbelowMaxDelay = 0;
     private int numfasterThanMinSpeed = 0;

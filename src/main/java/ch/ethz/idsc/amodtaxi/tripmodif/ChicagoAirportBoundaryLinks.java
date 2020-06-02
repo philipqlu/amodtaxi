@@ -4,10 +4,10 @@ package ch.ethz.idsc.amodtaxi.tripmodif;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.net.TensorCoords;
 import org.matsim.api.core.v01.network.Link;
 
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
-import ch.ethz.idsc.amodeus.net.TensorCoords;
 import ch.ethz.idsc.tensor.Tensor;
 import ch.ethz.idsc.tensor.Tensors;
 

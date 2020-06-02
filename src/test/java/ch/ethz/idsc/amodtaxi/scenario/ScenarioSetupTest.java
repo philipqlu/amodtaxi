@@ -3,12 +3,12 @@ package ch.ethz.idsc.amodtaxi.scenario;
 
 import java.io.File;
 
+import amodeus.amodeus.util.math.GlobalAssert;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.tensor.io.DeleteDirectory;
 
 public class ScenarioSetupTest {

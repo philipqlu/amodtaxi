@@ -12,12 +12,12 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import ch.ethz.idsc.amodeus.dispatcher.core.RequestStatus;
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
-import ch.ethz.idsc.amodeus.net.RequestContainer;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.dispatcher.core.RequestStatus;
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.net.RequestContainer;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.AmodeusTimeConvert;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 
 /* package */ class RequestInserter {
@@ -41,9 +41,7 @@ import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
         System.err.println("found " + taxiTrips.size() + " taxi trips.");
 
         for (TaxiTrip taxiTrip : taxiTrips) {
-
-            Map<RequestStatus, LocalDateTime> reqTimes = //
-                    StaticHelper.getRequestTimes(taxiTrip.pickupTimeDate, timeTaxiStamps);
+            Map<RequestStatus, LocalDateTime> reqTimes = StaticHelper.getRequestTimes(taxiTrip.pickupTimeDate, timeTaxiStamps);
 
             /** basic setup of RequestContainer */
             LocalDateTime submissionTime = Stream.of(RequestStatus.REQUESTED, RequestStatus.ASSIGNED, RequestStatus.PICKUPDRIVE, RequestStatus.PICKUP, RequestStatus.DRIVING) //

@@ -5,8 +5,8 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Collections;
 
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.trace.CsvFleetReaderInterface;
 import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
 import ch.ethz.idsc.amodtaxi.trace.ReadTraceFiles;

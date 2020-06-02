@@ -5,17 +5,16 @@ import java.io.File;
 import java.time.LocalDate;
 import java.util.Collection;
 
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.AmodeusTimeConvert;
+import amodeus.amodeus.util.io.GZHandler;
 import ch.ethz.idsc.amodtaxi.scenario.Consistency;
 import org.matsim.api.core.v01.network.Network;
 import org.matsim.api.core.v01.population.Population;
 import org.matsim.core.config.groups.PlansConfigGroup;
 import org.matsim.core.population.PopulationUtils;
 import org.matsim.core.population.io.PopulationWriter;
-
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
-import ch.ethz.idsc.amodeus.util.io.GZHandler;
 
 @Deprecated
 /* package */ enum AdamAndEve {

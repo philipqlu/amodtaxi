@@ -4,10 +4,9 @@ package ch.ethz.idsc.amodtaxi.scenario;
 import java.io.File;
 import java.util.Map;
 
+import amodeus.amodeus.util.matsim.xml.XmlCustomModifier;
 import org.jdom2.Document;
 import org.jdom2.Element;
-
-import ch.ethz.idsc.amodeus.util.matsim.xml.XmlCustomModifier;
 
 public enum Pt2MatsimXML {
     ;

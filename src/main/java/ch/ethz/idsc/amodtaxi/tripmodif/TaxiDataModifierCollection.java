@@ -5,9 +5,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import ch.ethz.idsc.amodeus.taxitrip.ExportTaxiTrips;
-import ch.ethz.idsc.amodeus.taxitrip.ImportTaxiTrips;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.taxitrip.ExportTaxiTrips;
+import amodeus.amodeus.taxitrip.ImportTaxiTrips;
+import amodeus.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodtaxi.util.NamingConvention;
 
 public class TaxiDataModifierCollection implements TaxiDataModifier {

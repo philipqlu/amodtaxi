@@ -1,10 +1,9 @@
 /* amod - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
 package ch.ethz.idsc.amodtaxi.scenario.chicago;
 
+import amodeus.amodeus.data.LocationSpec;
+import amodeus.amodeus.data.ReferenceFrame;
 import org.matsim.api.core.v01.Coord;
-
-import ch.ethz.idsc.amodeus.data.LocationSpec;
-import ch.ethz.idsc.amodeus.data.ReferenceFrame;
 
 /* package */ enum ChicagoLocationSpecs implements LocationSpec {
     CHICAGO( //

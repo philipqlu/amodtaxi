@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.taxitrip.TaxiTrip;
 import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
 
 public class AllTaxiTrips {

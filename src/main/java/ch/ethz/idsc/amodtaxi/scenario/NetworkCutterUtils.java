@@ -3,11 +3,11 @@ package ch.ethz.idsc.amodtaxi.scenario;
 
 import java.util.Objects;
 
+import amodeus.amodeus.util.network.LinkModes;
 import org.matsim.api.core.v01.network.Link;
 import org.matsim.api.core.v01.network.Network;
 import org.matsim.api.core.v01.network.Node;
 
-import ch.ethz.idsc.amodeus.util.network.LinkModes;
 
 public enum NetworkCutterUtils {
     ;

@@ -6,13 +6,13 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Properties;
 
+import amodeus.amodeus.options.ScenarioOptionsBase;
+import amodeus.amodeus.util.math.GlobalAssert;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import ch.ethz.idsc.amodeus.options.ScenarioOptionsBase;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.scenario.ScenarioLabels;
 import ch.ethz.idsc.amodtaxi.scenario.TestDirectories;
 import ch.ethz.idsc.tensor.io.DeleteDirectory;

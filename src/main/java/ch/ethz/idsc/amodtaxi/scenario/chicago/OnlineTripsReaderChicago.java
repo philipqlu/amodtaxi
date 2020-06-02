@@ -4,9 +4,9 @@ package ch.ethz.idsc.amodtaxi.scenario.chicago;
 import java.text.ParseException;
 import java.time.LocalDateTime;
 
-import ch.ethz.idsc.amodeus.util.LocalDateTimes;
-import ch.ethz.idsc.amodeus.util.io.CsvReader.Row;
-import ch.ethz.idsc.amodeus.util.math.SI;
+import amodeus.amodeus.util.LocalDateTimes;
+import amodeus.amodeus.util.io.CsvReader.Row;
+import amodeus.amodeus.util.math.SI;
 import ch.ethz.idsc.amodtaxi.scenario.TaxiTripsReader;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Tensor;
@@ -42,16 +42,14 @@ public class OnlineTripsReaderChicago extends TaxiTripsReader {
 
     @Override
     public Tensor getPickupLocation(Row line) {
-        Tensor loc = Tensors.vector(Double.valueOf(line.get("pickup_centroid_longitude")), //
+        return Tensors.vector(Double.valueOf(line.get("pickup_centroid_longitude")), //
                 Double.valueOf(line.get("pickup_centroid_latitude")));
-        return loc;
     }
 
     @Override
     public Tensor getDropoffLocation(Row line) {
-        Tensor loc = Tensors.vector(Double.valueOf(line.get("dropoff_centroid_longitude")), //
+        return Tensors.vector(Double.valueOf(line.get("dropoff_centroid_longitude")), //
                 Double.valueOf(line.get("dropoff_centroid_latitude")));
-        return loc;
     }
 
     @Override
@@ -76,7 +74,6 @@ public class OnlineTripsReaderChicago extends TaxiTripsReader {
         // not available from data
         return null;
     }
-
 }
 
 // TODO move to tests

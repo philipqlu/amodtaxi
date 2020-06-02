@@ -14,8 +14,8 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
-import ch.ethz.idsc.amodeus.net.MatsimAmodeusDatabase;
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.net.MatsimAmodeusDatabase;
 import org.matsim.api.core.v01.network.Network;
 import org.matsim.contrib.dvrp.router.DistanceAsTravelDisutility;
 import org.matsim.core.router.FastAStarLandmarksFactory;

@@ -6,6 +6,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import amodeus.amodeus.util.io.CopyFiles;
+import amodeus.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.matsim.xml.XmlCustomModifier;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.junit.AfterClass;
@@ -13,9 +16,6 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import ch.ethz.idsc.amodeus.util.io.CopyFiles;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
-import ch.ethz.idsc.amodeus.util.matsim.xml.XmlCustomModifier;
 import ch.ethz.idsc.tensor.io.DeleteDirectory;
 
 public class Pt2MatsimXMLTest {
@@ -59,7 +59,7 @@ public class Pt2MatsimXMLTest {
     @Test
     public void testChangeAttribute() throws Exception {
         /* Run function of interest */
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>();
         map.put("outputCoordinateSystem", "EPSG:XXX");
         Pt2MatsimXML.changeAttributes(PT_FILE, map);
 
@@ -73,9 +73,8 @@ public class Pt2MatsimXMLTest {
                 String nameValue = element.getAttributeValue("name");
                 if (nameValue == null)
                     continue;
-                if (nameValue.equals("outputCoordinateSystem")) {
-                    Assert.assertTrue(element.getAttributeValue("value").equals("EPSG:XXX"));
-                }
+                if (nameValue.equals("outputCoordinateSystem"))
+                    Assert.assertEquals("EPSG:XXX", element.getAttributeValue("value"));
             }
         }
     }

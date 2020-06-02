@@ -9,8 +9,14 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
-import ch.ethz.idsc.amodeus.taxitrip.ImportTaxiTrips;
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.taxitrip.ExportTaxiTrips;
+import amodeus.amodeus.taxitrip.ImportTaxiTrips;
+import amodeus.amodeus.taxitrip.PersonCreate;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.AmodeusTimeConvert;
+import amodeus.amodeus.util.io.GZHandler;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.scenario.ScenarioLabels;
 import ch.ethz.idsc.amodtaxi.util.NamingConvention;
 import org.matsim.api.core.v01.network.Network;
@@ -21,12 +27,6 @@ import org.matsim.core.config.Config;
 import org.matsim.core.population.PopulationUtils;
 import org.matsim.core.population.io.PopulationWriter;
 
-import ch.ethz.idsc.amodeus.taxitrip.ExportTaxiTrips;
-import ch.ethz.idsc.amodeus.taxitrip.PersonCreate;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
-import ch.ethz.idsc.amodeus.util.io.GZHandler;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.tripfilter.TaxiTripFilterCollection;
 
 public class TripPopulationCreator {

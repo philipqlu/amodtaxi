@@ -4,7 +4,7 @@ package ch.ethz.idsc.amodtaxi.scenario.sanfrancisco;
 import java.time.LocalDateTime;
 import java.util.NavigableMap;
 
-import ch.ethz.idsc.amodeus.dispatcher.core.RoboTaxiStatus;
+import amodeus.amodeus.dispatcher.core.RoboTaxiStatus;
 import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 
 /* package */ enum SFTrailProcess {

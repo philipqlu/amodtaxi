@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Collections;
 
-import ch.ethz.idsc.amodeus.util.io.CopyFiles;
+import amodeus.amodeus.util.io.CopyFiles;
 import ch.ethz.idsc.amodtaxi.util.ResourceHandling;
 
 public enum ScenarioSetup {

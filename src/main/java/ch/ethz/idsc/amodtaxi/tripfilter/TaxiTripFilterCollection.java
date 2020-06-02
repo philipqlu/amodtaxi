@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.taxitrip.TaxiTrip;
 
 /** Contains a set of filters that process an individual {@link TaxiTrip}
  * and let it pass or not: TaxiTrip -> {true,false} */

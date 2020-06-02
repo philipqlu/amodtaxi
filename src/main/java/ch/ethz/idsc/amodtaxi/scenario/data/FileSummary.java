@@ -14,8 +14,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
-import ch.ethz.idsc.amodeus.util.math.SI;
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.util.math.SI;
 import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 import ch.ethz.idsc.amodtaxi.trace.TaxiStampHelpers;
 import ch.ethz.idsc.amodtaxi.util.CSVUtils;

@@ -4,7 +4,7 @@ package ch.ethz.idsc.amodtaxi.tripfilter;
 import java.util.Objects;
 import java.util.Random;
 
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.taxitrip.TaxiTrip;
 
 public class RandomRemoverFilter extends AbstractConsciousFilter {
 
@@ -18,8 +18,6 @@ public class RandomRemoverFilter extends AbstractConsciousFilter {
 
     @Override
     public boolean testInternal(TaxiTrip t) {
-        if (random.nextDouble() <= keepShare)
-            return true;
-        return false;
+        return random.nextDouble() <= keepShare;
     }
 }

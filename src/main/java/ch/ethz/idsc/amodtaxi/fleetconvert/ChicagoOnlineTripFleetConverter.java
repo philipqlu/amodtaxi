@@ -4,11 +4,11 @@ package ch.ethz.idsc.amodtaxi.fleetconvert;
 import java.io.File;
 import java.util.Random;
 
+import amodeus.amodeus.options.ScenarioOptions;
+import amodeus.amodeus.util.math.SI;
 import ch.ethz.idsc.amodtaxi.scenario.TaxiTripsSuppliers;
 import org.matsim.api.core.v01.network.Network;
 
-import ch.ethz.idsc.amodeus.options.ScenarioOptions;
-import ch.ethz.idsc.amodeus.util.math.SI;
 import ch.ethz.idsc.amodtaxi.scenario.TaxiTripsReader;
 import ch.ethz.idsc.amodtaxi.scenario.chicago.ScenarioConstants;
 import ch.ethz.idsc.amodtaxi.tripfilter.RandomRemoverFilter;

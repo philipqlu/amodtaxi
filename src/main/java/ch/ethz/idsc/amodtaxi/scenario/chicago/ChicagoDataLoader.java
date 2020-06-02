@@ -11,8 +11,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
 
-import ch.ethz.idsc.amodeus.options.ScenarioOptionsBase;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.options.ScenarioOptionsBase;
+import amodeus.amodeus.util.math.GlobalAssert;
 
 public enum ChicagoDataLoader {
     ;
@@ -65,5 +65,4 @@ public enum ChicagoDataLoader {
         String date = properties.getProperty("date").replace("/", "_");
         return new File(dir, "Taxi_Trips_" + date + ".csv");
     }
-
 }

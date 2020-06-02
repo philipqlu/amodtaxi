@@ -4,9 +4,9 @@ package ch.ethz.idsc.amodtaxi.tripmodif;
 import java.time.LocalDateTime;
 import java.util.Random;
 
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.LocalDateTimes;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.LocalDateTimes;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Scalar;
 

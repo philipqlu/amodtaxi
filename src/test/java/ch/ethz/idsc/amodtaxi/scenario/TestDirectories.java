@@ -2,8 +2,8 @@ package ch.ethz.idsc.amodtaxi.scenario;
 
 import java.io.File;
 
-import ch.ethz.idsc.amodeus.util.io.Locate;
-import ch.ethz.idsc.amodeus.util.io.MultiFileTools;
+import amodeus.amodeus.util.io.Locate;
+import amodeus.amodeus.util.io.MultiFileTools;
 
 public enum TestDirectories {
     ;

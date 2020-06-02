@@ -1,10 +1,9 @@
 /* amod - Copyright (c) 2018, ETH Zurich, Institute for Dynamic Systems and Control */
 package ch.ethz.idsc.amodtaxi.scenario.sanfrancisco;
 
+import amodeus.amodeus.data.ReferenceFrame;
 import org.matsim.core.utils.geometry.CoordinateTransformation;
 import org.matsim.core.utils.geometry.transformations.GeotoolsTransformation;
-
-import ch.ethz.idsc.amodeus.data.ReferenceFrame;
 
 public enum SanFranciscoReferenceFrames implements ReferenceFrame {
     SANFRANCISCO( //
@@ -13,10 +12,11 @@ public enum SanFranciscoReferenceFrames implements ReferenceFrame {
     ;
 
     // ---
+
     private final CoordinateTransformation coords_toWGS84;
     private final CoordinateTransformation coords_fromWGS84;
 
-    private SanFranciscoReferenceFrames(CoordinateTransformation c1, CoordinateTransformation c2) {
+    SanFranciscoReferenceFrames(CoordinateTransformation c1, CoordinateTransformation c2) {
         coords_toWGS84 = c1;
         coords_fromWGS84 = c2;
     }

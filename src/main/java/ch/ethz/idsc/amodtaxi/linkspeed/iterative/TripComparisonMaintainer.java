@@ -3,16 +3,17 @@ package ch.ethz.idsc.amodtaxi.linkspeed.iterative;
 
 import java.util.Collections;
 import java.util.HashMap;
+
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
+import amodeus.amodeus.net.MatsimAmodeusDatabase;
+import amodeus.amodeus.taxitrip.ShortestDurationCalculator;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.math.GlobalAssert;
 import org.matsim.api.core.v01.network.Network;
 
-import ch.ethz.idsc.amodeus.net.MatsimAmodeusDatabase;
-import ch.ethz.idsc.amodeus.taxitrip.ShortestDurationCalculator;
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.tensor.RealScalar;
 import ch.ethz.idsc.tensor.Scalar;
 
@@ -21,8 +22,7 @@ import ch.ethz.idsc.tensor.Scalar;
     private final Map<TaxiTrip, Scalar> ratioLookupMap = new HashMap<>();
     private final NavigableMap<Scalar, TaxiTrip> ratioSortedMap = new TreeMap<>();
 
-    public TripComparisonMaintainer(RandomTripMaintainer randomTrips, Network network, //
-            MatsimAmodeusDatabase db) {
+    public TripComparisonMaintainer(RandomTripMaintainer randomTrips, Network network, MatsimAmodeusDatabase db) {
         // initial fill
         ShortestDurationCalculator calc = new ShortestDurationCalculator(network, db);
         for (int i = 0; i < randomTrips.numTrips(); ++i) {

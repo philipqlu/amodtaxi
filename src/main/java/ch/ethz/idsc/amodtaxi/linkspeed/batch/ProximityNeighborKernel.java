@@ -3,13 +3,13 @@ package ch.ethz.idsc.amodtaxi.linkspeed.batch;
 
 import java.util.Collection;
 
-import ch.ethz.idsc.amodeus.util.math.SI;
+import amodeus.amodeus.util.geo.FastQuadTree;
+import amodeus.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.math.SI;
 import org.matsim.api.core.v01.network.Link;
 import org.matsim.api.core.v01.network.Network;
 import org.matsim.core.utils.collections.QuadTree;
 
-import ch.ethz.idsc.amodeus.util.geo.FastQuadTree;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.linkspeed.NeighborKernel;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;

@@ -12,14 +12,13 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 import java.util.Objects;
 
-import ch.ethz.idsc.amodeus.net.FastLinkLookup;
-
-import ch.ethz.idsc.amodeus.net.SimulationObject;
-import ch.ethz.idsc.amodeus.net.StorageSubscriber;
-import ch.ethz.idsc.amodeus.net.StorageUtils;
-import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
-import ch.ethz.idsc.amodeus.util.LocalDateTimes;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.net.FastLinkLookup;
+import amodeus.amodeus.net.SimulationObject;
+import amodeus.amodeus.net.StorageSubscriber;
+import amodeus.amodeus.net.StorageUtils;
+import amodeus.amodeus.util.AmodeusTimeConvert;
+import amodeus.amodeus.util.LocalDateTimes;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.trace.DayTaxiRecord;
 import ch.ethz.idsc.amodtaxi.trace.TaxiStamp;
 import ch.ethz.idsc.amodtaxi.trace.TaxiTrail;

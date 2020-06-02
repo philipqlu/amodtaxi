@@ -3,10 +3,9 @@ package ch.ethz.idsc.amodtaxi.trace;
 
 import java.time.LocalDateTime;
 
+import amodeus.amodeus.dispatcher.core.RequestStatus;
+import amodeus.amodeus.dispatcher.core.RoboTaxiStatus;
 import org.matsim.api.core.v01.Coord;
-
-import ch.ethz.idsc.amodeus.dispatcher.core.RequestStatus;
-import ch.ethz.idsc.amodeus.dispatcher.core.RoboTaxiStatus;
 
 public class TaxiStamp {
 
@@ -21,5 +20,4 @@ public class TaxiStamp {
     // TODO remove this after integrating Zurich code
     @Deprecated
     public RequestStatus requestStatus;
-
 }

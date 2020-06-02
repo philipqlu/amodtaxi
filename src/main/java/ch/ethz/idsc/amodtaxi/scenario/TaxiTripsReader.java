@@ -15,12 +15,12 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.Duration;
-import ch.ethz.idsc.amodeus.util.LocalDateTimes;
-import ch.ethz.idsc.amodeus.util.io.CsvReader;
-import ch.ethz.idsc.amodeus.util.io.CsvReader.Row;
-import ch.ethz.idsc.amodeus.util.math.SI;
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.Duration;
+import amodeus.amodeus.util.LocalDateTimes;
+import amodeus.amodeus.util.io.CsvReader;
+import amodeus.amodeus.util.io.CsvReader.Row;
+import amodeus.amodeus.util.math.SI;
 import ch.ethz.idsc.tensor.Scalar;
 import ch.ethz.idsc.tensor.Scalars;
 import ch.ethz.idsc.tensor.Tensor;

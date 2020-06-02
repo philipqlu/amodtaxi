@@ -5,14 +5,14 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
+import amodeus.amodeus.taxitrip.TaxiTrip;
+import amodeus.amodeus.util.io.CopyFiles;
+import amodeus.amodeus.util.math.GlobalAssert;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import ch.ethz.idsc.amodeus.taxitrip.TaxiTrip;
-import ch.ethz.idsc.amodeus.util.io.CopyFiles;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.scenario.TaxiTripsReader;
 import ch.ethz.idsc.amodtaxi.scenario.TestDirectories;
 import ch.ethz.idsc.amodtaxi.tripmodif.ChicagoFormatModifier;

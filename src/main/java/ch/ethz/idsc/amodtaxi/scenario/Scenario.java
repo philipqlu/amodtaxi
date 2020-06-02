@@ -5,8 +5,8 @@ import java.io.File;
 import java.time.LocalDate;
 import java.util.Optional;
 
-import ch.ethz.idsc.amodeus.util.AmodeusTimeConvert;
-import ch.ethz.idsc.amodeus.util.math.GlobalAssert;
+import amodeus.amodeus.util.AmodeusTimeConvert;
+import amodeus.amodeus.util.math.GlobalAssert;
 import ch.ethz.idsc.amodtaxi.fleetconvert.TripFleetConverter;
 import ch.ethz.idsc.amodtaxi.util.NamingConvention;
 
