@@ -2,7 +2,6 @@
 package amodeus.amodtaxi.osm;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -16,19 +15,22 @@ import amodeus.amodtaxi.scenario.ScenarioLabels;
 public enum StaticMapCreator {
     ;
 
-    public static void now(File directory) throws FileNotFoundException, IOException {
+    public static void now(File directory) throws IOException {
         now(directory, ScenarioLabels.osmData, ScenarioLabels.amodeusFile, ScenarioLabels.pt2MatSettings);
     }
 
-    public static void now(File directory, String osmData, String amodeusFile, String pt2MatsimSettingsName) throws FileNotFoundException, IOException {
+    public static void now(File directory, String osmData, String amodeusFile, String pt2MatsimSettingsName) throws IOException {
+        /** generate a network using pt2Matsim */
+        Optional<File> networkFile = getNetworkFileName(directory, pt2MatsimSettingsName);
+        if (networkFile.isPresent()) {
+            System.err.println("INFO " + networkFile.get().getAbsolutePath() + " already exists");
+            return;
+        }
+
         System.out.println("Downloading open street map data, this may take a while...");
         File osmFile = new File(directory, osmData);
         OsmLoader osmLoader = OsmLoader.of(new File(directory, amodeusFile));
         osmLoader.saveIfNotAlreadyExists(osmFile);
-
-        /** generate a network using pt2Matsim */
-        if (getNetworkFileName(directory, pt2MatsimSettingsName).isPresent())
-            return;
 
         File pt2MatsimSettings = new File(directory, pt2MatsimSettingsName);
         Osm2MultimodalNetwork.run(pt2MatsimSettings.getAbsolutePath());
