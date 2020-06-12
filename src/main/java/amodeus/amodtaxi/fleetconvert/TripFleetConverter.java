@@ -5,6 +5,7 @@ import java.io.File;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -45,7 +46,7 @@ public abstract class TripFleetConverter {
         this.contentModifier = tripModifier;
         this.finalFilters = finalFilters;
         this.taxiTripsSupplier = taxiTripsSupplier;
-        this.targetDirectory = targetDirectory;
+        this.targetDirectory = Objects.requireNonNull(targetDirectory);
         ReferenceFrame referenceFrame = scenarioOptions.getLocationSpec().referenceFrame();
         db = MatsimAmodeusDatabase.initialize(network, referenceFrame);
         fastLinkLookup = new FastLinkLookup(network, db);

@@ -27,10 +27,14 @@ public class TaxiTripsSuppliers {
                 try {
                     /** folder for processing stored files, the folder tripData contains
                      * .csv versions of all processing steps for faster debugging. */
-                    FileUtils.copyFileToDirectory(tripFile, targetDirectory);
-                    File newTripFile = new File(targetDirectory, tripFile.getName());
-                    System.out.println("NewTripFile: " + newTripFile.getAbsolutePath());
-                    GlobalAssert.that(newTripFile.isFile());
+                    File newTripFile;
+                    if (!tripFile.getParentFile().equals(targetDirectory)) {
+                        FileUtils.copyFileToDirectory(tripFile, targetDirectory);
+                        newTripFile = new File(targetDirectory, tripFile.getName());
+                        System.out.println("NewTripFile: " + newTripFile.getAbsolutePath());
+                        GlobalAssert.that(newTripFile.isFile());
+                    } else
+                        newTripFile = tripFile;
 
                     /** initial formal modifications, e.g., replacing certain characters,
                      * other modifications should be done in the third step */
