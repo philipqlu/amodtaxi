@@ -12,6 +12,7 @@ import ch.ethz.idsc.tensor.qty.Quantity;
 public enum ScenarioConstants {
     ;
 
+	public static final double kmToM = 1000.0;
     public static final double milesToM = 1609.34;
     public static final DateFormat inFormat = new SimpleDateFormat("yyyy/MM/dd");
     public static final DateFormat outFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");

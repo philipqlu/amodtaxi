@@ -28,7 +28,7 @@ public class TripStartTimeShiftResampling implements TripModifier {
         LocalDateTime start = taxiTrip.pickupTimeDate;
 
         /** assert that start time is multiple of 15 minutes */
-        GlobalAssert.that(start.getMinute() % 15 == 0); // this is always true for Chicago online data
+//        GlobalAssert.that(start.getMinute() % 15 == 0); // this is always true for Chicago online data
 
         /** compute a random time shift */
         Scalar shift = RealScalar.of(random.nextDouble()).multiply(maxShift);

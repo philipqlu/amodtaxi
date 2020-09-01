@@ -1,9 +1,10 @@
 /* amodtaxi - Copyright (c) 2019, ETH Zurich, Institute for Dynamic Systems and Control */
-package amodeus.amodtaxi.scenario.chicago;
+package amodeus.amodtaxi.util;
 
 import java.time.LocalDate;
 import java.time.Month;
 
+import amodeus.amodtaxi.util.LocalDateConvert;
 import junit.framework.TestCase;
 
 public class LocalDateConvertTest extends TestCase {
