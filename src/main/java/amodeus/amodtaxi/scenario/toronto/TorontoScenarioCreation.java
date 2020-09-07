@@ -61,10 +61,11 @@ public class TorontoScenarioCreation extends ScenarioCreation {
         
         /* Create empty scenario folder */
         File processingDir = new File(workingDirectory, "Scenario");
-        if (processingDir.isDirectory())
-            DeleteDirectory.of(processingDir, 2, 50);
-        if (!processingDir.isDirectory())
-            processingDir.mkdir();
+        if (!processingDir.isDirectory()) {
+        	processingDir.mkdir();
+        } else {
+        	DeleteDirectory.of(processingDir, 2, 50);
+        }
 
         CopyFiles.now(workingDirectory.getAbsolutePath(), processingDir.getAbsolutePath(), Arrays.asList(//
                 ScenarioLabels.amodeusFile, //
@@ -72,8 +73,7 @@ public class TorontoScenarioCreation extends ScenarioCreation {
                 ScenarioLabels.network, //
                 ScenarioLabels.networkGz, //
                 ScenarioLabels.LPFile));
-        ScenarioOptions scenarioOptions = new ScenarioOptions(processingDir, //
-                ScenarioOptionsBase.getDefault());
+        ScenarioOptions scenarioOptions = new ScenarioOptions(processingDir, ScenarioOptionsBase.getDefault());
         LocalDate simulationDate = LocalDateConvert.ofOptions(scenarioOptions.getString("date"));
         
         /* Based on the trips data, create a population and assemble a AMoDeus scenario */
@@ -90,9 +90,9 @@ public class TorontoScenarioCreation extends ScenarioCreation {
         TaxiDataModifier tripModifier;
 
         TaxiDataModifierCollection taxiDataModifierCollection = new TaxiDataModifierCollection();
-//        taxiDataModifierCollection.addModifier(new TripStartTimeShiftResampling(RANDOM, Quantity.of(900, SI.SECOND)));
+        taxiDataModifierCollection.addModifier(new TripStartTimeShiftResampling(RANDOM, Quantity.of(900, SI.SECOND)));
         File vNFile = new File(processingDir, "virtualNetworkToronto");
-//        taxiDataModifierCollection.addModifier(new OriginDestinationCentroidResampling(RANDOM, network, fll, vNFile));
+        taxiDataModifierCollection.addModifier(new OriginDestinationCentroidResampling(RANDOM, network, fll, vNFile));
         tripModifier = taxiDataModifierCollection;
 
         TaxiTripFilterCollection taxiTripFilterCollection = new TaxiTripFilterCollection();
