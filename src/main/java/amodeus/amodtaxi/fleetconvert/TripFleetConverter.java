@@ -77,7 +77,8 @@ public abstract class TripFleetConverter {
         GlobalAssert.that(modifiedTripsFile.isFile());
 
         /** creating population based on corrected, filtered file */
-        TripPopulationCreator populationCreator = new TripPopulationCreator(processingDir, config, network, fastLinkLookup, simulationDate, timeConvert, finalFilters);
+        TripPopulationCreator populationCreator = new TripPopulationCreator(
+        		processingDir, config, network, fastLinkLookup, simulationDate, timeConvert, finalFilters);
         populationCreator.process(modifiedTripsFile);
         finalTripsFile = populationCreator.getFinalTripFile();
     }

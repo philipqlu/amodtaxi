@@ -25,6 +25,13 @@ public class Scenario {
         creator.run();
         return creator.getFinalTripFile().orElseThrow();
     }
+    
+    public static File create(File dataDir, File tripFile, TripFleetConverter converter, File processingDir, //
+            String[] files, LocalDate simulationDate, AmodeusTimeConvert timeConvert) throws Exception {
+        Scenario creator = new Scenario(dataDir, NamingConvention.similarTo(tripFile), converter, processingDir, simulationDate, timeConvert);
+        creator.run(files);
+        return creator.getFinalTripFile().orElseThrow();
+    }
 
     // ---
 
@@ -47,6 +54,12 @@ public class Scenario {
         this.simulationDate = simulationDate;
         this.timeConvert = timeConvert;
         this.fleetConverter = converter;
+    }
+    
+    private void run(String[] files) throws Exception {
+        InitialFiles.copyToDir(processingDir, dataDir, files);
+        fleetConverter.setFilters();
+        fleetConverter.run(processingDir, convention, simulationDate, timeConvert);
     }
 
     private void run() throws Exception {

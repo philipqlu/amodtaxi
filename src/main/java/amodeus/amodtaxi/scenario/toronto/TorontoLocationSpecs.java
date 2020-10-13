@@ -8,7 +8,7 @@ import org.matsim.api.core.v01.Coord;
 /* package */ enum TorontoLocationSpecs implements LocationSpec {
     TORONTO( //
             TorontoReferenceFrames.TORONTO, //
-            new Coord(-79.377010, 43.651623)), // <- no cutting
+            new Coord(-79.377257,43.718394)), //
     ;
 
     private final ReferenceFrame referenceFrame;

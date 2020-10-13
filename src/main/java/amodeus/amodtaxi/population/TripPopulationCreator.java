@@ -88,7 +88,6 @@ public class TripPopulationCreator {
         });
 
         // export finally used set of trips
-
         ExportTaxiTrips.toFile(finalFilteredTrips.stream(), finalTripFile);
 
         // write the modified population to file

@@ -3,6 +3,7 @@ package amodeus.amodtaxi.scenario.toronto;
 import java.io.File;
 
 import amodeus.amodeus.util.io.Locate;
+import amodeus.amodtaxi.scenario.ScenarioLabels;
 import amodeus.amodtaxi.scenario.ScenarioSetup;
 
 public enum TorontoSetup {

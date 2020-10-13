@@ -14,8 +14,15 @@ import ch.ethz.idsc.tensor.io.DeleteDirectory;
 
 /* package */ enum InitialFiles {
     ;
-
-    public static void copyToDir(File procDir, File dataDir) throws Exception {
+	
+	public static void copyToDir(File procDir, File dataDir) throws Exception {
+		String[] defaultFiles = new String[] {
+				ScenarioLabels.amodeusFile, ScenarioLabels.LPFile, ScenarioLabels.config,
+	            ScenarioLabels.network, ScenarioLabels.networkGz};
+		copyToDir(procDir, dataDir, defaultFiles);
+	}
+	
+    public static void copyToDir(File procDir, File dataDir, String[] fileNames) throws Exception {
         System.out.println("Copying data files from : " + dataDir);
         System.out.println("to:                       " + procDir);
 
@@ -27,7 +34,7 @@ import ch.ethz.idsc.tensor.io.DeleteDirectory;
                 Thread.sleep(1000);
                 System.err.println(i + " seconds");
             }
-            DeleteDirectory.of(procDir, 2, 14);
+            DeleteDirectory.of(procDir, 2, 20);
             procDir.mkdir();
         } else
             GlobalAssert.that(procDir.mkdir());
@@ -35,9 +42,6 @@ import ch.ethz.idsc.tensor.io.DeleteDirectory;
         /** copy initial config files */
         CopyOption[] options = new CopyOption[] { //
                 StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.COPY_ATTRIBUTES };
-
-        String[] fileNames = new String[] { //
-                ScenarioLabels.amodeusFile, ScenarioLabels.avFile, ScenarioLabels.LPFile, ScenarioLabels.config, ScenarioLabels.network, ScenarioLabels.networkGz };
 
         for (String fileName : fileNames) {
             File sourceFile = new File(dataDir, fileName);

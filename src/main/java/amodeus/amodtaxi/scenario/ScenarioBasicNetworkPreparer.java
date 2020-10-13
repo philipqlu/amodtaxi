@@ -31,11 +31,10 @@ public enum ScenarioBasicNetworkPreparer {
         // save the network
         final File fileExport = new File(processingDir, ScenarioLabels.network);
         final File fileExportGz = new File(processingDir, ScenarioLabels.networkGz);
-        {
-            // write the modified population to file
-            NetworkWriter nw = new NetworkWriter(filteredNetwork);
-            nw.write(fileExportGz.toString());
-        }
+
+        // write the modified population to file
+        NetworkWriter nw = new NetworkWriter(filteredNetwork);
+        nw.write(fileExportGz.toString());
 
         // extract gz file
         try {

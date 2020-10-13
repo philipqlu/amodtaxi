@@ -18,19 +18,21 @@ import ch.ethz.idsc.tensor.qty.Quantity;
 
 public class TorontoTripFleetConverter extends TripFleetConverter {
 
-    public TorontoTripFleetConverter(ScenarioOptions scenarioOptions, Network network, //
-            TaxiDataModifier modifier, TaxiDataModifier generalModifier, TaxiTripFilterCollection finalFilters, //
+    public TorontoTripFleetConverter(ScenarioOptions scenarioOptions, Network network,
+            TaxiDataModifier modifier, TaxiTripFilterCollection finalFilters,
             TaxiTripsReader tripsReader, File tripFile, File targetDirectory) {
-        super(scenarioOptions, network, modifier, finalFilters, TaxiTripsSuppliers.fromReader(tripFile, targetDirectory, tripsReader, generalModifier), targetDirectory);
+        super(scenarioOptions, network, modifier, finalFilters,
+        	  TaxiTripsSuppliers.fromReader(tripFile, targetDirectory, tripsReader),
+              targetDirectory);
     }
 
 	@Override
 	public void setFilters() {
         /** trips outside the range [150[s], 30[h]] are removed */
-//        primaryFilter.addFilter(new TripDurationFilter(Quantity.of(150, SI.SECOND), Quantity.of(10800, SI.SECOND)));
+        primaryFilter.addFilter(new TripDurationFilter(Quantity.of(150, SI.SECOND), Quantity.of(10800, SI.SECOND)));
 
         /** trips which end after the maximum end time are rejected */
-//        primaryFilter.addFilter(new TripEndTimeFilter(ScenarioConstants.maxEndTime));
+        primaryFilter.addFilter(new TripEndTimeFilter(ScenarioConstants.maxEndTime));
 	}
 
 }

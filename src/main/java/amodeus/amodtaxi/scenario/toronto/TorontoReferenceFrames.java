@@ -7,8 +7,8 @@ import org.matsim.core.utils.geometry.transformations.GeotoolsTransformation;
 
 public enum TorontoReferenceFrames implements ReferenceFrame {
     TORONTO( //
-            new GeotoolsTransformation("EPSG:4326", "WGS84"), //
-            new GeotoolsTransformation("WGS84", "EPSG:4326")),//
+            new GeotoolsTransformation("EPSG:3161", "WGS84"), //
+            new GeotoolsTransformation("WGS84", "EPSG:3161")),//
     ;
 
     // ---

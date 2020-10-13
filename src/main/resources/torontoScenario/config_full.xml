@@ -8,14 +8,14 @@
 
     		<parameterset type="generator">
     			<param name="type" value="PopulationDensity" />
-    			<param name="numberOfVehicles" value="40" />
+    			<param name="numberOfVehicles" value="50" />
     		</parameterset>
 
     		<parameterset type="dispatcher">
     			<param name="type" value="ModelFreeAdaptiveRepositioning" />
-    			<param name="dispatchPeriod" value="10" />
-    			<param name="infoLinePeriod" value="3600" />
-    			<param name="publishPeriod" value="120" />
+    			<param name="dispatchPeriod" value="15" />
+    			<param name="infoLinePeriod" value="3600"/>
+    			<param name="publishPeriod" value="10"/>
     		</parameterset>
 
     		<parameterset type="timing">
@@ -26,9 +26,9 @@
     		</parameterset>
 
   			<parameterset type="pricing">
-  				<param name="pricePerKm" value="0.001" />
-  				<param name="pricePerMin" value="0.0" />
-  				<param name="pricePerTrip" value="3.0" />
+  				<param name="pricePerKm" value="0.5" />
+  				<param name="pricePerMin" value="0.15" />
+  				<param name="pricePerTrip" value="3.0" ></param>
   			</parameterset>
     	</parameterset>
     </module>
@@ -45,18 +45,18 @@
 		<param name="writeEventsInterval" value="1" />
 		<param name="writePlansInterval" value="1" />
 		<param name="eventsFileFormat" value="xml" />
-		<param name="outputDirectory" value="output/001"/>
+		<param name="outputDirectory" value="output/mf_fs_50"/>
 		<param name="firstIteration" value="0" />
 		<param name="lastIteration" value="0" />
-		<param name="mobsim" value="qsim" />
+		<param name="mobsim" value="qsim" ></param>
 		<param name="overwriteFiles" value="deleteDirectoryIfExists" />
 	</module>
 
  	<module name="qsim" >
-		<param name="startTime" value="0:00:00" />
+		<param name="startTime" value="4:00:00" />
 		<param name="endTime" value="30:00:00" />
-		<param name="flowCapacityFactor" value="1000000000000" />
-		<param name="storageCapacityFactor" value="1000000000000" />
+		<param name="flowCapacityFactor" value="1" />
+		<param name="storageCapacityFactor" value="1" />
 		<param name="numberOfThreads" value="4" />
 		<param name="snapshotperiod" value="00:00:10"/>
 

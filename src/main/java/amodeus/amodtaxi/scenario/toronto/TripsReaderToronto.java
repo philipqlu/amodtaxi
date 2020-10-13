@@ -26,8 +26,8 @@ public class TripsReaderToronto extends TaxiTripsReader {
     }
 
     @Override
-    public final String getTaxiId(Row row) {
-        return "test";
+    public final String getTaxiId(Row line) {
+        return null;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class TripsReaderToronto extends TaxiTripsReader {
 
     @Override
     public LocalDateTime getDropoffTime(Row line) throws ParseException {
-        return LocalDateTimes.addTo(getPickupTime(line), getDuration(line));
+    	return LocalDateTimes.addTo(getPickupTime(line), getDuration(line));
     }
 
     @Override
@@ -60,8 +60,9 @@ public class TripsReaderToronto extends TaxiTripsReader {
 
     @Override
     public final Scalar getDistance(Row line) {
-        return Quantity.of(Double.valueOf(line.get("distance"))//
-                * ScenarioConstants.kmToM, SI.METER);
+        return Quantity.of(
+        		Double.valueOf(line.get("distance")) * ScenarioConstants.kmToM,
+        		SI.METER);
     }
 
     @Override

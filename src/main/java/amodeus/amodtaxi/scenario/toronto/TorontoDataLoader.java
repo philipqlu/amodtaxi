@@ -24,30 +24,17 @@ public enum TorontoDataLoader {
 		Properties properties = new Properties();
 		try (FileInputStream fis = new FileInputStream(propertiesFile)) {
 			properties.load(fis);
-		}
-		
-		return from(properties, dir, Integer.valueOf(properties.getProperty(ScenarioOptionsBase.MAXPOPULATIONSIZEIDENTIFIER)));
-	}
-	
-	private static File from(Properties properties, File dir, int entryLimit) throws Exception {
-		File file = null;
-		try {
-			String urlString = properties.getProperty("URL") + "?$limit=" + entryLimit;
-			URL url = new URL(urlString);
-			System.out.println("INFO download data from " + url);
-			
-			/* Download file to local directory */
-			try (InputStream in = url.openStream()) {
-				String date = properties.getProperty("date").replace("/", "_");
-				file = new File(dir, "taxi_trips_" + date + ".csv");
-				Files.copy(in,  file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-				System.out.println("INFO successfully copied data to " + file.getAbsolutePath());
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return file;
+		File tripsFile = null;
+		try {
+			String tripsFileName = properties.getProperty("tripsFile");
+			tripsFile = new File(dir, tripsFileName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return tripsFile;
 	}
-
 }
